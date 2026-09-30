@@ -1,509 +1,4215 @@
+```
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Private Villa For Rent | Grand Baie | Behind Oasis 2</title>
-
-<meta name="description"
-content="Private 3 Bedroom Villa with Pool for Rent in Grand Baie Behind Oasis 2. Fully Furnished. Secure Parking. Long Term Rental.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<meta name="description" content="ASHWINI - No-Bypass Client & Commission Protection System">
+<meta name="theme-color" content="#0b1220">
+<title>ASHWINI | Super Deals Mauritius Co Ltd</title>
 
 <style>
-
 :root{
---primary:#0b5ed7;
---secondary:#25D366;
---dark:#111827;
---light:#f8fafc;
---gold:#ffc107;
+    --bg:#f4f7fb;
+    --card:#ffffff;
+    --sidebar:#0b1220;
+    --sidebar2:#111c31;
+    --primary:#2563eb;
+    --primary-dark:#1d4ed8;
+    --success:#16a34a;
+    --warning:#d97706;
+    --danger:#dc2626;
+    --info:#0891b2;
+    --text:#172033;
+    --muted:#6b7280;
+    --border:#e5e7eb;
+    --shadow:0 8px 30px rgba(15,23,42,.08);
+    --radius:14px;
 }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
-background:#f8fafc;
-color:#333;
-line-height:1.6;
+    font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    min-height:100vh;
 }
 
-.hero{
-height:100vh;
-background:
-linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-url('images/villa1.jpg');
-background-size:cover;
-background-position:center;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:20px;
-color:white;
+button,input,select,textarea{font:inherit}
+
+button{cursor:pointer}
+
+.hidden{display:none!important}
+
+.app{
+    min-height:100vh;
+    display:flex;
 }
 
-.hero-content{
-max-width:900px;
+/* SIDEBAR */
+.sidebar{
+    width:260px;
+    background:linear-gradient(180deg,var(--sidebar),#08101d);
+    color:#fff;
+    position:fixed;
+    left:0;
+    top:0;
+    bottom:0;
+    z-index:1000;
+    overflow-y:auto;
+    transition:.25s;
+}
+
+.brand{
+    height:78px;
+    display:flex;
+    align-items:center;
+    padding:0 20px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.brand-mark{
+    width:42px;
+    height:42px;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    border-radius:11px;
+    display:grid;
+    place-items:center;
+    font-weight:900;
+    font-size:20px;
+    margin-right:12px;
+}
+
+.brand h1{
+    font-size:19px;
+    letter-spacing:.5px;
+}
+
+.brand small{
+    color:#94a3b8;
+    display:block;
+    font-size:10px;
+    margin-top:2px;
+}
+
+.nav{
+    padding:18px 12px;
+}
+
+.nav-label{
+    color:#64748b;
+    text-transform:uppercase;
+    font-size:10px;
+    letter-spacing:1px;
+    padding:14px 12px 7px;
+}
+
+.nav-item{
+    width:100%;
+    border:0;
+    background:transparent;
+    color:#cbd5e1;
+    padding:11px 12px;
+    border-radius:9px;
+    display:flex;
+    align-items:center;
+    gap:11px;
+    text-align:left;
+    margin-bottom:3px;
+    transition:.2s;
+}
+
+.nav-item:hover,
+.nav-item.active{
+    color:#fff;
+    background:#1e3a68;
+}
+
+.nav-item.active{
+    box-shadow:inset 3px 0 #60a5fa;
+}
+
+.nav-icon{
+    width:22px;
+    text-align:center;
+    font-size:16px;
+}
+
+.sidebar-footer{
+    padding:15px;
+    border-top:1px solid rgba(255,255,255,.08);
+    color:#94a3b8;
+    font-size:11px;
+}
+
+/* MAIN */
+.main{
+    margin-left:260px;
+    width:calc(100% - 260px);
+    min-width:0;
+}
+
+.topbar{
+    height:78px;
+    background:#fff;
+    border-bottom:1px solid var(--border);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 28px;
+    position:sticky;
+    top:0;
+    z-index:900;
+}
+
+.mobile-menu{
+    display:none;
+    border:0;
+    background:#eef2ff;
+    color:#1e40af;
+    width:40px;
+    height:40px;
+    border-radius:9px;
+}
+
+.top-title{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.top-title h2{
+    font-size:18px;
+}
+
+.top-title p{
+    font-size:11px;
+    color:var(--muted);
+    margin-top:2px;
+}
+
+.top-actions{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.icon-btn{
+    border:1px solid var(--border);
+    background:#fff;
+    width:40px;
+    height:40px;
+    border-radius:9px;
+    position:relative;
+}
+
+.notification-dot{
+    position:absolute;
+    width:7px;
+    height:7px;
+    background:#ef4444;
+    border-radius:50%;
+    right:8px;
+    top:8px;
+}
+
+.profile{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    padding-left:8px;
+}
+
+.avatar{
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:#fff;
+    display:grid;
+    place-items:center;
+    font-weight:700;
+    font-size:13px;
+}
+
+.profile-info strong{
+    display:block;
+    font-size:13px;
+}
+
+.profile-info span{
+    font-size:10px;
+    color:var(--muted);
+}
+
+/* CONTENT */
+.content{
+    padding:28px;
+    max-width:1800px;
+    margin:auto;
+}
+
+.page{
+    display:none;
+}
+
+.page.active{
+    display:block;
+}
+
+.page-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    margin-bottom:22px;
+}
+
+.page-head h1{
+    font-size:25px;
+}
+
+.page-head p{
+    color:var(--muted);
+    font-size:13px;
+    margin-top:4px;
+}
+
+.actions{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+/* BUTTONS */
+.btn{
+    border:0;
+    border-radius:9px;
+    padding:10px 15px;
+    font-weight:600;
+    font-size:13px;
+    transition:.2s;
+}
+
+.btn-primary{
+    background:var(--primary);
+    color:#fff;
+}
+
+.btn-primary:hover{background:var(--primary-dark)}
+
+.btn-secondary{
+    background:#fff;
+    color:#374151;
+    border:1px solid var(--border);
+}
+
+.btn-secondary:hover{background:#f8fafc}
+
+.btn-success{background:var(--success);color:#fff}
+.btn-warning{background:var(--warning);color:#fff}
+.btn-danger{background:var(--danger);color:#fff}
+
+.btn-sm{
+    padding:7px 10px;
+    font-size:11px;
+}
+
+/* CARDS */
+.card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+}
+
+.card-head{
+    padding:17px 20px;
+    border-bottom:1px solid var(--border);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.card-head h3{
+    font-size:15px;
+}
+
+.card-body{padding:20px}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+    margin-bottom:20px;
+}
+
+.stat{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:20px;
+    box-shadow:var(--shadow);
+    position:relative;
+    overflow:hidden;
+}
+
+.stat:after{
+    content:"";
+    position:absolute;
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    right:-30px;
+    top:-30px;
+    background:rgba(37,99,235,.06);
+}
+
+.stat-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.stat-icon{
+    width:40px;
+    height:40px;
+    display:grid;
+    place-items:center;
+    border-radius:10px;
+    background:#eff6ff;
+    color:#2563eb;
+}
+
+.stat-value{
+    font-size:28px;
+    font-weight:800;
+    margin-top:14px;
+}
+
+.stat-label{
+    font-size:12px;
+    color:var(--muted);
+    margin-top:3px;
+}
+
+.stat-change{
+    font-size:10px;
+    margin-top:8px;
+    color:var(--success);
+}
+
+.grid-2{
+    display:grid;
+    grid-template-columns:1.4fr 1fr;
+    gap:20px;
+}
+
+.grid-3{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.grid-4{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+}
+
+/* TABLE */
+.table-wrap{
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:700px;
+}
+
+th{
+    background:#f8fafc;
+    color:#64748b;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:.5px;
+    text-align:left;
+    padding:12px 15px;
+    border-bottom:1px solid var(--border);
+}
+
+td{
+    padding:13px 15px;
+    border-bottom:1px solid #eef0f3;
+    font-size:12px;
+    vertical-align:middle;
+}
+
+tbody tr:hover{background:#fafcff}
+
+.id{
+    color:#2563eb;
+    font-weight:700;
 }
 
 .badge{
-display:inline-block;
-background:#25D366;
-padding:10px 20px;
-border-radius:50px;
-font-weight:600;
-margin-bottom:20px;
+    display:inline-flex;
+    align-items:center;
+    padding:5px 8px;
+    border-radius:999px;
+    font-size:10px;
+    font-weight:700;
 }
 
-.hero h1{
-font-size:4rem;
-margin-bottom:20px;
-line-height:1.2;
+.badge-success{background:#dcfce7;color:#166534}
+.badge-warning{background:#fef3c7;color:#92400e}
+.badge-danger{background:#fee2e2;color:#991b1b}
+.badge-info{background:#cffafe;color:#155e75}
+.badge-neutral{background:#f1f5f9;color:#475569}
+.badge-purple{background:#ede9fe;color:#5b21b6}
+
+/* FORMS */
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
 }
 
-.price{
-font-size:3rem;
-font-weight:700;
-color:var(--gold);
-margin-bottom:15px;
+.form-grid-3{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
 }
 
-.hero p{
-font-size:1.2rem;
-margin-bottom:30px;
+.form-group{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
 }
 
-.btn{
-display:inline-block;
-background:var(--secondary);
-color:white;
-padding:16px 35px;
-text-decoration:none;
-border-radius:50px;
-font-weight:600;
-transition:.3s;
+.form-group.full{
+    grid-column:1/-1;
 }
 
-.btn:hover{
-transform:translateY(-3px);
+.form-group label{
+    font-size:11px;
+    font-weight:700;
+    color:#374151;
 }
 
-.container{
-max-width:1300px;
-margin:auto;
-padding:80px 20px;
+.form-control{
+    width:100%;
+    border:1px solid #dbe1e8;
+    background:#fff;
+    border-radius:8px;
+    padding:10px 11px;
+    outline:none;
+    color:#111827;
+    font-size:13px;
 }
 
-.section-title{
-text-align:center;
-font-size:2.5rem;
-margin-bottom:50px;
-color:var(--dark);
+.form-control:focus{
+    border-color:#60a5fa;
+    box-shadow:0 0 0 3px rgba(37,99,235,.1);
 }
 
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:20px;
+textarea.form-control{
+    resize:vertical;
+    min-height:100px;
 }
 
-.gallery img{
-width:100%;
-height:260px;
-object-fit:cover;
-border-radius:15px;
-box-shadow:0 10px 30px rgba(0,0,0,.1);
-transition:.3s;
+.form-actions{
+    display:flex;
+    justify-content:flex-end;
+    gap:8px;
+    margin-top:20px;
+    padding-top:18px;
+    border-top:1px solid var(--border);
 }
 
-.gallery img:hover{
-transform:scale(1.03);
+/* SEARCH */
+.toolbar{
+    padding:15px 20px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    border-bottom:1px solid var(--border);
 }
 
-.features{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-margin-top:40px;
+.search{
+    position:relative;
+    flex:1;
+    min-width:220px;
 }
 
-.feature{
-background:white;
-padding:30px;
-border-radius:15px;
-text-align:center;
-box-shadow:0 5px 25px rgba(0,0,0,.08);
+.search input{
+    width:100%;
+    padding:10px 12px 10px 35px;
+    border:1px solid var(--border);
+    border-radius:8px;
+    outline:none;
 }
 
-.feature i{
-font-size:40px;
-color:var(--primary);
-margin-bottom:15px;
+.search span{
+    position:absolute;
+    left:12px;
+    top:9px;
+    color:#94a3b8;
 }
 
-.description{
-background:white;
-padding:50px;
-border-radius:15px;
-margin-top:50px;
-box-shadow:0 5px 25px rgba(0,0,0,.08);
+.toolbar select{
+    min-width:140px;
 }
 
-.description ul{
-padding-left:25px;
-margin-top:20px;
+/* CHARTS */
+.chart{
+    height:260px;
+    padding:20px;
+    display:flex;
+    align-items:flex-end;
+    gap:12px;
 }
 
-.description li{
-margin-bottom:10px;
+.bar{
+    flex:1;
+    background:linear-gradient(180deg,#3b82f6,#2563eb);
+    border-radius:6px 6px 0 0;
+    min-width:20px;
+    position:relative;
+    transition:.2s;
 }
 
-.terms{
-background:var(--primary);
-color:white;
-padding:50px;
-border-radius:15px;
-margin-top:50px;
+.bar:hover{filter:brightness(1.1)}
+
+.bar span{
+    position:absolute;
+    bottom:-22px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:9px;
+    color:#64748b;
 }
 
-.terms h2{
-margin-bottom:20px;
+/* ACTIVITY */
+.activity{
+    display:flex;
+    flex-direction:column;
 }
 
-.kyc{
-background:white;
-padding:50px;
-border-radius:15px;
-margin-top:50px;
-box-shadow:0 5px 25px rgba(0,0,0,.08);
+.activity-item{
+    display:flex;
+    gap:12px;
+    padding:13px 0;
+    border-bottom:1px solid #eef0f3;
 }
 
-form{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
+.activity-item:last-child{border-bottom:0}
+
+.activity-dot{
+    width:9px;
+    height:9px;
+    background:#2563eb;
+    border-radius:50%;
+    margin-top:5px;
+    flex-shrink:0;
 }
 
-input,select,textarea{
-width:100%;
-padding:15px;
-border:1px solid #ddd;
-border-radius:10px;
-font-size:15px;
+.activity-text{
+    font-size:12px;
 }
 
-textarea{
-height:150px;
-grid-column:span 2;
+.activity-time{
+    color:#94a3b8;
+    font-size:10px;
+    margin-top:3px;
 }
 
-.full{
-grid-column:span 2;
+/* REFERRAL CHAIN */
+.chain{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:0;
+    padding:30px 10px;
 }
 
-.submit-btn{
-background:var(--secondary);
-color:white;
-border:none;
-padding:18px;
-font-size:18px;
-font-weight:600;
-border-radius:10px;
-cursor:pointer;
+.chain-node{
+    text-align:center;
+    min-width:145px;
 }
 
-.submit-btn:hover{
-opacity:.9;
+.chain-avatar{
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    margin:auto;
+    display:grid;
+    place-items:center;
+    color:#fff;
+    font-size:20px;
+    font-weight:800;
 }
 
-footer{
-background:#111827;
-color:white;
-text-align:center;
-padding:50px 20px;
-margin-top:80px;
+.chain-node h4{
+    font-size:12px;
+    margin-top:8px;
 }
 
-.whatsapp{
-position:fixed;
-right:20px;
-bottom:20px;
-width:70px;
-height:70px;
-background:#25D366;
-border-radius:50%;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:35px;
-color:white;
-text-decoration:none;
-box-shadow:0 10px 30px rgba(0,0,0,.25);
-z-index:999;
+.chain-node p{
+    color:#94a3b8;
+    font-size:10px;
+    margin-top:3px;
 }
 
-@media(max-width:768px){
-
-.hero h1{
-font-size:2.4rem;
+.chain-arrow{
+    color:#94a3b8;
+    font-size:22px;
+    padding:0 10px;
 }
 
-.price{
-font-size:2rem;
+/* MODAL */
+.modal-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(15,23,42,.6);
+    backdrop-filter:blur(3px);
+    z-index:3000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
 }
 
-form{
-grid-template-columns:1fr;
+.modal-overlay.open{display:flex}
+
+.modal{
+    width:100%;
+    max-width:700px;
+    max-height:90vh;
+    overflow:auto;
+    background:#fff;
+    border-radius:16px;
+    box-shadow:0 30px 80px rgba(0,0,0,.25);
 }
 
-textarea,
-.full{
-grid-column:span 1;
-}
+.modal-head{
+    padding:18px 20px;
+    border-bottom:1px solid var(--border);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
+.modal-head h3{font-size:17px}
+
+.close{
+    border:0;
+    background:#f1f5f9;
+    width:32px;
+    height:32px;
+    border-radius:8px;
+}
+
+.modal-body{padding:20px}
+
+/* TOAST */
+.toast-container{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    z-index:5000;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.toast{
+    background:#111827;
+    color:#fff;
+    padding:13px 16px;
+    border-radius:9px;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+    min-width:260px;
+    font-size:12px;
+    animation:slideIn .25s;
+}
+
+.toast.success{border-left:4px solid #22c55e}
+.toast.error{border-left:4px solid #ef4444}
+.toast.warning{border-left:4px solid #f59e0b}
+
+@keyframes slideIn{
+    from{transform:translateX(30px);opacity:0}
+    to{transform:translateX(0);opacity:1}
+}
+
+/* LOGIN */
+.login-screen{
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at 15% 20%,rgba(37,99,235,.3),transparent 35%),
+        radial-gradient(circle at 85% 80%,rgba(124,58,237,.25),transparent 35%),
+        #07101e;
+    z-index:10000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.login-box{
+    width:100%;
+    max-width:430px;
+    background:#fff;
+    border-radius:18px;
+    box-shadow:0 30px 100px rgba(0,0,0,.4);
+    padding:34px;
+}
+
+.login-logo{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.login-logo .brand-mark{
+    margin:auto;
+    width:60px;
+    height:60px;
+    font-size:27px;
+}
+
+.login-logo h1{
+    margin-top:13px;
+    font-size:24px;
+}
+
+.login-logo p{
+    color:#64748b;
+    font-size:12px;
+    margin-top:4px;
+}
+
+.login-footer{
+    text-align:center;
+    margin-top:18px;
+    color:#94a3b8;
+    font-size:10px;
+}
+
+.password-wrap{
+    position:relative;
+}
+
+.password-wrap input{
+    padding-right:45px;
+}
+
+.password-toggle{
+    position:absolute;
+    right:7px;
+    top:6px;
+    border:0;
+    background:transparent;
+    width:32px;
+    height:32px;
+}
+
+.demo-note{
+    background:#eff6ff;
+    color:#1e40af;
+    padding:10px;
+    border-radius:8px;
+    font-size:10px;
+    margin-bottom:15px;
+}
+
+/* DETAIL */
+.detail-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+}
+
+.detail{
+    background:#f8fafc;
+    padding:12px;
+    border-radius:8px;
+}
+
+.detail label{
+    color:#64748b;
+    font-size:10px;
+    display:block;
+    margin-bottom:4px;
+}
+
+.detail strong{
+    font-size:12px;
+}
+
+/* PROGRESS */
+.progress{
+    height:8px;
+    background:#e5e7eb;
+    border-radius:99px;
+    overflow:hidden;
+}
+
+.progress-bar{
+    height:100%;
+    background:#2563eb;
+    border-radius:99px;
+}
+
+/* FILE */
+.file-box{
+    border:2px dashed #cbd5e1;
+    border-radius:10px;
+    padding:25px;
+    text-align:center;
+    color:#64748b;
+}
+
+.file-box input{margin-top:10px}
+
+/* EMPTY */
+.empty{
+    padding:40px 20px;
+    text-align:center;
+    color:#94a3b8;
+}
+
+.empty-icon{
+    font-size:35px;
+    margin-bottom:8px;
+}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .grid-2,.grid-3{grid-template-columns:1fr}
+    .grid-4{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:800px){
+    .sidebar{
+        transform:translateX(-100%);
+    }
+
+    .sidebar.open{
+        transform:translateX(0);
+    }
+
+    .main{
+        margin-left:0;
+        width:100%;
+    }
+
+    .mobile-menu{display:block}
+
+    .top-title p{display:none}
+
+    .content{padding:18px}
+
+    .form-grid,.form-grid-3{
+        grid-template-columns:1fr;
+    }
+
+    .grid-4{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:600px){
+    .stats{grid-template-columns:1fr}
+    .grid-4{grid-template-columns:1fr}
+    .topbar{padding:0 15px}
+    .profile-info{display:none}
+    .page-head{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+    .chain-arrow{
+        transform:rotate(90deg);
+    }
+    .chain{
+        flex-direction:column;
+    }
+}
 </style>
 </head>
+
 <body>
 
-<section class="hero">
+<!-- LOGIN -->
+<div id="loginScreen" class="login-screen">
+    <div class="login-box">
+        <div class="login-logo">
+            <div class="brand-mark">A</div>
+            <h1>ASHWINI</h1>
+            <p>No-Bypass Client & Commission Protection System</p>
+        </div>
 
-<div class="hero-content">
+        <div class="demo-note">
+            Demo access: <strong>admin@superdeals.mu</strong> /
+            <strong>admin123</strong>
+        </div>
 
-<div class="badge">
-🔥 HIGH DEMAND LOCATION
+        <form id="loginForm">
+            <div class="form-group" style="margin-bottom:15px">
+                <label>Email Address</label>
+                <input id="loginEmail" class="form-control" type="email"
+                       value="admin@superdeals.mu" required>
+            </div>
+
+            <div class="form-group" style="margin-bottom:15px">
+                <label>Password</label>
+                <div class="password-wrap">
+                    <input id="loginPassword" class="form-control"
+                           type="password" value="admin123" required>
+                    <button type="button" class="password-toggle"
+                            onclick="togglePassword()">👁</button>
+                </div>
+            </div>
+
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:18px">
+                <input type="checkbox" id="rememberMe">
+                <label for="rememberMe" style="font-size:11px;color:#64748b">
+                    Remember this device
+                </label>
+            </div>
+
+            <button class="btn btn-primary" style="width:100%;padding:12px">
+                🔐 Secure Login
+            </button>
+        </form>
+
+        <div class="login-footer">
+            ASHWINI © 2026 Super Deals Mauritius Co Ltd<br>
+            Authorized access only
+        </div>
+    </div>
 </div>
 
-<h1>
-Private 3 Bedroom Villa<br>
-Behind Oasis 2<br>
-Grand Baie
-</h1>
+<div class="app">
 
-<div class="price">
-MUR 45,000 / Month
-</div>
+<!-- SIDEBAR -->
+<aside id="sidebar" class="sidebar">
+    <div class="brand">
+        <div class="brand-mark">A</div>
+        <div>
+            <h1>ASHWINI</h1>
+            <small>SUPER DEALS MAURITIUS</small>
+        </div>
+    </div>
 
-<p>
-Private Swimming Pool • Fully Furnished • Secure Parking •
-Air Conditioning • Long Term Rental
-</p>
+    <nav class="nav">
 
-<a class="btn"
-href="https://wa.me/23059237053?text=Hello%20I%20am%20interested%20in%20the%20Grand%20Baie%20Villa"
-target="_blank">
-Book A Viewing
-</a>
+        <div class="nav-label">Main</div>
 
-</div>
+        <button class="nav-item active" data-page="dashboard">
+            <span class="nav-icon">▦</span> Dashboard
+        </button>
 
+        <button class="nav-item" data-page="clients">
+            <span class="nav-icon">👥</span> Clients
+        </button>
+
+        <button class="nav-item" data-page="referrals">
+            <span class="nav-icon">🔗</span> Referral Chains
+        </button>
+
+        <button class="nav-item" data-page="transactions">
+            <span class="nav-icon">💼</span> Transactions
+        </button>
+
+        <button class="nav-item" data-page="commissions">
+            <span class="nav-icon">💰</span> Commissions
+        </button>
+
+        <div class="nav-label">Management</div>
+
+        <button class="nav-item" data-page="agents">
+            <span class="nav-icon">🧑‍💼</span> Agents
+        </button>
+
+        <button class="nav-item" data-page="agencies">
+            <span class="nav-icon">🏢</span> Partner Agencies
+        </button>
+
+        <button class="nav-item" data-page="assignments">
+            <span class="nav-icon">📌</span> Assignments
+        </button>
+
+        <button class="nav-item" data-page="documents">
+            <span class="nav-icon">📁</span> Documents
+        </button>
+
+        <div class="nav-label">System</div>
+
+        <button class="nav-item" data-page="users">
+            <span class="nav-icon">🔐</span> Users & Roles
+        </button>
+
+        <button class="nav-item" data-page="notifications">
+            <span class="nav-icon">🔔</span> Notifications
+        </button>
+
+        <button class="nav-item" data-page="audit">
+            <span class="nav-icon">🛡️</span> Audit Trail
+        </button>
+
+        <button class="nav-item" data-page="settings">
+            <span class="nav-icon">⚙️</span> Settings
+        </button>
+    </nav>
+
+    <div class="sidebar-footer">
+        <div>System Status: <span style="color:#4ade80">● Online</span></div>
+        <div style="margin-top:5px">Version 1.0.0</div>
+    </div>
+</aside>
+
+<!-- MAIN -->
+<div class="main">
+
+<header class="topbar">
+    <div class="top-title">
+        <button class="mobile-menu" onclick="toggleSidebar()">☰</button>
+        <div>
+            <h2 id="pageTitle">Dashboard</h2>
+            <p>Client protection & commission management</p>
+        </div>
+    </div>
+
+    <div class="top-actions">
+        <button class="icon-btn" onclick="showPage('notifications')">
+            🔔
+            <span class="notification-dot"></span>
+        </button>
+
+        <div class="profile">
+            <div class="avatar">SA</div>
+            <div class="profile-info">
+                <strong>Super Admin</strong>
+                <span>Administrator</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="content">
+
+<!-- DASHBOARD -->
+<section id="dashboard" class="page active">
+
+    <div class="page-head">
+        <div>
+            <h1>Dashboard</h1>
+            <p>Overview of ASHWINI client protection activity.</p>
+        </div>
+        <div class="actions">
+            <button class="btn btn-secondary" onclick="exportData()">⬇ Export</button>
+            <button class="btn btn-primary" onclick="openClientModal()">＋ Register Client</button>
+        </div>
+    </div>
+
+    <div class="stats">
+
+        <div class="stat">
+            <div class="stat-top">
+                <span class="stat-label">TOTAL CLIENTS</span>
+                <div class="stat-icon">👥</div>
+            </div>
+            <div class="stat-value" id="statClients">0</div>
+            <div class="stat-change">↑ Active client records</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-top">
+                <span class="stat-label">ACTIVE TRANSACTIONS</span>
+                <div class="stat-icon">💼</div>
+            </div>
+            <div class="stat-value" id="statTransactions">0</div>
+            <div class="stat-change">↑ Tracked transactions</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-top">
+                <span class="stat-label">COMMISSION VALUE</span>
+                <div class="stat-icon">💰</div>
+            </div>
+            <div class="stat-value" id="statCommission">Rs 0</div>
+            <div class="stat-change">↑ Recorded commissions</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-top">
+                <span class="stat-label">SECURITY EVENTS</span>
+                <div class="stat-icon">🛡️</div>
+            </div>
+            <div class="stat-value" id="statAudit">0</div>
+            <div class="stat-change">Audit records captured</div>
+        </div>
+
+    </div>
+
+    <div class="grid-2">
+
+        <div class="card">
+            <div class="card-head">
+                <h3>Transaction Overview</h3>
+                <select class="form-control" style="width:120px" onchange="updateChart(this.value)">
+                    <option value="6">6 Months</option>
+                    <option value="12">12 Months</option>
+                </select>
+            </div>
+
+            <div class="chart" id="transactionChart">
+                <div class="bar" style="height:35%"><span>Apr</span></div>
+                <div class="bar" style="height:48%"><span>May</span></div>
+                <div class="bar" style="height:42%"><span>Jun</span></div>
+                <div class="bar" style="height:65%"><span>Jul</span></div>
+                <div class="bar" style="height:76%"><span>Aug</span></div>
+                <div class="bar" style="height:90%"><span>Sep</span></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-head">
+                <h3>Recent Activity</h3>
+                <button class="btn btn-secondary btn-sm" onclick="showPage('audit')">View All</button>
+            </div>
+
+            <div class="card-body">
+                <div id="recentActivity" class="activity"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div style="height:20px"></div>
+
+    <div class="grid-2">
+
+        <div class="card">
+            <div class="card-head">
+                <h3>Recent Clients</h3>
+                <button class="btn btn-primary btn-sm" onclick="showPage('clients')">View Clients</button>
+            </div>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Client ID</th>
+                            <th>Client</th>
+                            <th>Referring Party</th>
+                            <th>Status</th>
+                            <th>Registered</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dashboardClients"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-head">
+                <h3>Referral Protection</h3>
+            </div>
+
+            <div class="card-body">
+
+                <div style="display:flex;justify-content:space-between;margin-bottom:10px">
+                    <span style="font-size:12px">Protected referral records</span>
+                    <strong id="protectedPercent">100%</strong>
+                </div>
+
+                <div class="progress">
+                    <div class="progress-bar" id="protectedBar" style="width:100%"></div>
+                </div>
+
+                <div style="margin-top:22px">
+
+                    <div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #eef0f3">
+                        <span style="font-size:11px;color:#64748b">Referral histories</span>
+                        <strong id="refHistoryCount">0</strong>
+                    </div>
+
+                    <div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #eef0f3">
+                        <span style="font-size:11px;color:#64748b">Commission histories</span>
+                        <strong id="commissionHistoryCount">0</strong>
+                    </div>
+
+                    <div style="display:flex;justify-content:space-between;padding:9px 0">
+                        <span style="font-size:11px;color:#64748b">Audit entries</span>
+                        <strong id="auditCountSmall">0</strong>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
 </section>
 
-<section class="container">
+<!-- CLIENTS -->
+<section id="clients" class="page">
 
-<h2 class="section-title">
-Villa Gallery
-</h2>
+    <div class="page-head">
+        <div>
+            <h1>Client Management</h1>
+            <p>Register and protect every client relationship.</p>
+        </div>
+        <button class="btn btn-primary" onclick="openClientModal()">＋ Register New Client</button>
+    </div>
 
-<div class="gallery">
+    <div class="card">
 
-<img src="images/villa1.jpg">
-<img src="images/villa2.jpg">
-<img src="images/villa3.jpg">
-<img src="images/villa4.jpg">
-<img src="images/villa5.jpg">
-<img src="images/villa6.jpg">
-<img src="images/villa7.jpg">
-<img src="images/villa8.jpg">
+        <div class="toolbar">
+            <div class="search">
+                <span>⌕</span>
+                <input id="clientSearch" placeholder="Search client, ID, email or phone..."
+                       oninput="renderClients()">
+            </div>
 
-</div>
+            <select id="clientStatusFilter" class="form-control" onchange="renderClients()">
+                <option value="">All Statuses</option>
+                <option value="Active">Active</option>
+                <option value="Pending">Pending</option>
+                <option value="Completed">Completed</option>
+                <option value="Inactive">Inactive</option>
+            </select>
 
-<h2 class="section-title">
-Property Features
-</h2>
+            <button class="btn btn-secondary" onclick="exportClients()">⬇ Export</button>
+        </div>
 
-<div class="features">
-
-<div class="feature">
-<i class="fas fa-swimming-pool"></i>
-<h3>Private Pool</h3>
-<p>Exclusive swimming pool for residents.</p>
-</div>
-
-<div class="feature">
-<i class="fas fa-bed"></i>
-<h3>3 Bedrooms</h3>
-<p>Air-conditioned bedrooms for maximum comfort.</p>
-</div>
-
-<div class="feature">
-<i class="fas fa-car"></i>
-<h3>Secure Parking</h3>
-<p>Private parking inside the property.</p>
-</div>
-
-<div class="feature">
-<i class="fas fa-couch"></i>
-<h3>Fully Furnished</h3>
-<p>Ready for immediate occupation.</p>
-</div>
-
-<div class="feature">
-<i class="fas fa-shield-alt"></i>
-<h3>Quiet Area</h3>
-<p>Peaceful residential environment.</p>
-</div>
-
-<div class="feature">
-<i class="fas fa-home"></i>
-<h3>Prime Location</h3>
-<p>Located behind Oasis 2, Grand Baie.</p>
-</div>
-
-</div>
-
-<div class="description">
-
-<h2>Villa Description</h2>
-
-<p>
-Discover a beautiful fully furnished private villa located in one of Grand Baie's most desirable residential areas.
-The property offers a rare combination of privacy, comfort and exceptional value.
-</p>
-
-<ul>
-<li>Private swimming pool</li>
-<li>Ground floor master bedroom</li>
-<li>2 additional bedrooms upstairs</li>
-<li>2 bathrooms</li>
-<li>2 toilets</li>
-<li>Air conditioning in all bedrooms</li>
-<li>Spacious living room</li>
-<li>Fully equipped kitchen</li>
-<li>Secure parking</li>
-<li>Quiet residential environment</li>
-<li>Long-term rental opportunity</li>
-</ul>
-
-</div>
-
-<div class="terms">
-
-<h2>Rental Terms</h2>
-
-<p><strong>Monthly Rent:</strong> MUR 45,000</p>
-<p><strong>Security Deposit:</strong> 1 Month (Refundable)</p>
-<p><strong>Advance Rent:</strong> 1 Month</p>
-<p><strong>Agency Fee:</strong> 1 Month</p>
-<p><strong>Minimum Lease:</strong> 1 Year</p>
-<p><strong>Extension Possible:</strong> For responsible tenants</p>
-
-</div>
-
-<div class="kyc">
-
-<h2>Tenant Application Form</h2>
-
-<p>
-We seek responsible long-term tenants who will maintain and respect the property.
-</p>
-
-<br>
-
-<form id="tenantForm">
-
-<input type="text" placeholder="Full Name" required>
-<input type="email" placeholder="Email Address" required>
-
-<input type="tel" placeholder="WhatsApp Number" required>
-<input type="text" placeholder="Nationality">
-
-<input type="text" placeholder="Employer / Company">
-<input type="text" placeholder="Occupation">
-
-<input type="number" placeholder="Monthly Income">
-<input type="number" placeholder="Number of Occupants">
-
-<select>
-<option>Purpose of Rental</option>
-<option>Residential</option>
-<option>Executive Residence</option>
-<option>Corporate Stay</option>
-<option>Relocation</option>
-</select>
-
-<select>
-<option>Do You Have Pets?</option>
-<option>Yes</option>
-<option>No</option>
-</select>
-
-<input type="date">
-<input type="text" placeholder="Current Address">
-
-<textarea placeholder="Tell us about yourself and why you would be an ideal tenant."></textarea>
-
-<button class="submit-btn full" type="submit">
-Submit Application via WhatsApp
-</button>
-
-</form>
-
-</div>
-
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ASHWINI Client ID</th>
+                        <th>Client</th>
+                        <th>Contact</th>
+                        <th>Original Referrer</th>
+                        <th>Referral Chain</th>
+                        <th>Status</th>
+                        <th>Registered</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="clientsTable"></tbody>
+            </table>
+        </div>
+    </div>
 </section>
 
-<footer>
+<!-- REFERRALS -->
+<section id="referrals" class="page">
 
-<h2>Private Villa For Rent</h2>
+    <div class="page-head">
+        <div>
+            <h1>Referral Chains</h1>
+            <p>Original referral relationships are protected and historically tracked.</p>
+        </div>
+    </div>
 
-<p>Grand Baie • Behind Oasis 2</p>
+    <div class="card" style="margin-bottom:20px">
+        <div class="card-head">
+            <h3>Protected Referral Chain</h3>
+            <select id="referralClientSelect" class="form-control"
+                    style="width:250px" onchange="renderReferralChain()"></select>
+        </div>
 
-<p>WhatsApp: +230 5923 7053</p>
+        <div id="referralChainDisplay"></div>
+    </div>
 
-<p>Professional Tenant Screening • Long-Term Rental</p>
+    <div class="card">
+        <div class="card-head">
+            <h3>Referral History</h3>
+            <span class="badge badge-info">Immutable Record</span>
+        </div>
 
-</footer>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>History ID</th>
+                        <th>Client ID</th>
+                        <th>Previous Chain</th>
+                        <th>New Chain</th>
+                        <th>Changed By</th>
+                        <th>Date</th>
+                        <th>Authorization</th>
+                    </tr>
+                </thead>
+                <tbody id="referralHistoryTable"></tbody>
+            </table>
+        </div>
+    </div>
+</section>
 
-<a class="whatsapp"
-href="https://wa.me/23059237053"
-target="_blank">
-<i class="fab fa-whatsapp"></i>
-</a>
+<!-- TRANSACTIONS -->
+<section id="transactions" class="page">
+
+    <div class="page-head">
+        <div>
+            <h1>Transactions</h1>
+            <p>Track client transactions from registration to completion.</p>
+        </div>
+        <button class="btn btn-primary" onclick="openTransactionModal()">＋ Add Transaction</button>
+    </div>
+
+    <div class="card">
+        <div class="toolbar">
+            <div class="search">
+                <span>⌕</span>
+                <input id="transactionSearch" placeholder="Search transaction or client..."
+                       oninput="renderTransactions()">
+            </div>
+
+            <select id="transactionStatusFilter" class="form-control"
+                    onchange="renderTransactions()">
+                <option value="">All Statuses</option>
+                <option value="Pending">Pending</option>
+                <option value="Processing">Processing</option>
+                <option value="Completed">Completed</option>
+                <option value="Cancelled">Cancelled</option>
+            </select>
+        </div>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Transaction ID</th>
+                        <th>Client</th>
+                        <th>Type</th>
+                        <th>Value</th>
+                        <th>Agency</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="transactionsTable"></tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- COMMISSIONS -->
+<section id="commissions" class="page">
+
+    <div class="page-head">
+        <div>
+            <h1>Commission Management</h1>
+            <p>Control commission structures and allocations.</p>
+        </div>
+        <button class="btn btn-primary" onclick="openCommissionModal()">＋ Create Commission</button>
+    </div>
+
+    <div class="stats">
+        <div class="stat">
+            <div class="stat-label">TOTAL COMMISSIONS</div>
+            <div class="stat-value" id="commissionTotal">Rs 0</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-label">PAID</div>
+            <div class="stat-value" id="commissionPaid">Rs 0</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-label">PENDING</div>
+            <div class="stat-value" id="commissionPending">Rs 0</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-label">STRUCTURES</div>
+            <div class="stat-value" id="commissionStructures">0</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-head">
+            <h3>Commission Records</h3>
+            <span class="badge badge-purple">Access Controlled</span>
+        </div>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Commission ID</th>
+                        <th>Transaction</th>
+                        <th>Client</th>
+                        <th>Recipient</th>
+                        <th>Rate</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody id="commissionsTable"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="card" style="margin-top:20px">
+        <div class="card-head">
+            <h3>Commission History</h3>
+            <span class="badge badge-info">Immutable</span>
+        </div>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>History ID</th>
+                        <th>Commission</th>
+                        <th>Old Value</th>
+                        <th>New Value</th>
+                        <th>Changed By</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody id="commissionHistoryTable"></tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- AGENTS -->
+<section id="agents" class="page">
+
+    <div class="page-head">
+        <div>
+            <h1>Agents</h1>
+            <p>Manage registered agents and their protected client portfolios.</p>
+        </div>
+        <button class="btn btn-primary" onclick="openAgentModal()">＋ Add Agent</button>
+    </div>
+
+    <div class="card">
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Agent ID</th>
+                        <th>Agent</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Clients</th>
+                        <th>Commission</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="agentsTable"></tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- AGENCIES -->
+<section id="agencies" class="page">
+
+    <div class="page-head">
+        <div>
+            <h1>Partner Agencies</h1>
+            <p>Manage agencies receiving protected client assignments.</p>
+        </div>
+        <button class="btn btn-primary" onclick="openAgencyModal()">＋ Add Agency</button>
+    </div>
+
+    <div class="card">
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Agency ID</th>
+                        <th>Agency</th>
+                        <th>Contact</th>
+                        <th>Email</th>
+                        <th>Assigned Clients</th>
+                        <th>Transactions</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="agenciesTable"></tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- ASSIGNMENTS -->
+<section id="assignments" class="page">
+
+    <div class="page-head">
+        <div>
+            <h1>Client Assignments</h1>
+            <p>Track agency assignments and assignment history.</p>
+        </div>
+        <button class="btn btn-primary" onclick="openAssignmentModal()">＋ Assign Client</button>
+    </div>
+
+    <div class="card">
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Assignment ID</th>
+                        <th>Client</th>
+                        <th>Agency</th>
+                        <th>Assigned By</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="assignmentsTable"></tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- DOCUMENTS -->
+<section id="documents" class="page">
+
+    <div class="page-head">
+        <div>
+            <h1>Documents</h1>
+            <p>Securely register documents associated with client records.</p>
+        </div>
+        <button class="btn btn-primary" onclick="openDocumentModal()">＋ Upload Document</button>
+    </div>
+
+    <div class="card">
+        <div class="toolbar">
+            <div class="search">
+                <span>⌕</span>
+                <input id="documentSearch" placeholder="Search documents..."
+                       oninput="renderDocuments()">
+            </div>
+        </div>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Document ID</th>
+                        <th>File Name</th>
+                        <th>Client</th>
+                        <th>Type</th>
+                        <th>Uploaded By</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="documentsTable"></tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- USERS -->
+<section id="users" class="page">
+
+    <div class="page-head">
+        <div>
+            <h1>Users & Roles</h1>
+            <p>Manage system accounts and access permissions.</p>
+        </div>
+        <button class="btn btn-primary" onclick="openUserModal()">＋ Add User</button>
+    </div>
+
+    <div class="card">
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Last Login</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="usersTable"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="grid-4" style="margin-top:20px">
+
+        <div class="card">
+            <div class="card-body">
+                <h3 style="font-size:14px">Super Admin</h3>
+                <p style="font-size:11px;color:#64748b;margin-top:5px">
+                    Full system access
+                </p>
+                <div style="margin-top:12px">
+                    <span class="badge badge-danger">Full Access</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h3 style="font-size:14px">Company Staff</h3>
+                <p style="font-size:11px;color:#64748b;margin-top:5px">
+                    Operational access
+                </p>
+                <div style="margin-top:12px">
+                    <span class="badge badge-info">Limited</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h3 style="font-size:14px">Agent</h3>
+                <p style="font-size:11px;color:#64748b;margin-top:5px">
+                    Own clients & commissions
+                </p>
+                <div style="margin-top:12px">
+                    <span class="badge badge-success">Restricted</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h3 style="font-size:14px">Partner Agency</h3>
+                <p style="font-size:11px;color:#64748b;margin-top:5px">
+                    Assigned clients only
+                </p>
+                <div style="margin-top:12px">
+                    <span class="badge badge-warning">Restricted</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- NOTIFICATIONS -->
+<section id="notifications" class="page">
+
+    <div class="page-head">
+        <div>
+            <h1>Notifications</h1>
+            <p>System alerts and operational notifications.</p>
+        </div>
+        <button class="btn btn-secondary" onclick="markAllRead()">✓ Mark All Read</button>
+    </div>
+
+    <div class="card">
+        <div id="notificationsList"></div>
+    </div>
+</section>
+
+<!-- AUDIT -->
+<section id="audit" class="page">
+
+    <div class="page-head">
+        <div>
+            <h1>Audit Trail</h1>
+            <p>Permanent record of security-sensitive system actions.</p>
+        </div>
+        <div class="actions">
+            <button class="btn btn-secondary" onclick="exportAudit()">⬇ Export Audit</button>
+        </div>
+    </div>
+
+    <div class="card">
+
+        <div class="toolbar">
+            <div class="search">
+                <span>⌕</span>
+                <input id="auditSearch" placeholder="Search audit records..."
+                       oninput="renderAudit()">
+            </div>
+
+            <select id="auditTypeFilter" class="form-control"
+                    onchange="renderAudit()">
+                <option value="">All Actions</option>
+                <option value="LOGIN">Login</option>
+                <option value="CLIENT">Client</option>
+                <option value="COMMISSION">Commission</option>
+                <option value="TRANSACTION">Transaction</option>
+                <option value="USER">User</option>
+                <option value="SECURITY">Security</option>
+            </select>
+        </div>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Audit ID</th>
+                        <th>Timestamp</th>
+                        <th>User</th>
+                        <th>Action</th>
+                        <th>Entity</th>
+                        <th>Entity ID</th>
+                        <th>IP / Device</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+                <tbody id="auditTable"></tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- SETTINGS -->
+<section id="settings" class="page">
+
+    <div class="page-head">
+        <div>
+            <h1>System Settings</h1>
+            <p>Configure system behavior and security preferences.</p>
+        </div>
+        <button class="btn btn-primary" onclick="saveSettings()">Save Settings</button>
+    </div>
+
+    <div class="grid-2">
+
+        <div class="card">
+            <div class="card-head">
+                <h3>Security Settings</h3>
+            </div>
+
+            <div class="card-body">
+
+                <div class="form-group" style="margin-bottom:15px">
+                    <label>Session Timeout (minutes)</label>
+                    <input id="sessionTimeout" class="form-control" type="number" value="30">
+                </div>
+
+                <div class="form-group" style="margin-bottom:15px">
+                    <label>Maximum Login Attempts</label>
+                    <input id="maxLoginAttempts" class="form-control" type="number" value="5">
+                </div>
+
+                <div class="form-group" style="margin-bottom:15px">
+                    <label>Password Minimum Length</label>
+                    <input id="passwordLength" class="form-control" type="number" value="10">
+                </div>
+
+                <label style="display:flex;gap:8px;align-items:center;margin:12px 0;font-size:12px">
+                    <input id="twoFactor" type="checkbox">
+                    Require two-factor authentication
+                </label>
+
+                <label style="display:flex;gap:8px;align-items:center;margin:12px 0;font-size:12px">
+                    <input id="auditEnabled" type="checkbox" checked>
+                    Enable audit logging
+                </label>
+
+                <label style="display:flex;gap:8px;align-items:center;margin:12px 0;font-size:12px">
+                    <input id="notifySecurity" type="checkbox" checked>
+                    Notify administrators of security events
+                </label>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-head">
+                <h3>Commission Defaults</h3>
+            </div>
+
+            <div class="card-body">
+
+                <div class="form-group" style="margin-bottom:15px">
+                    <label>Default Agent Commission (%)</label>
+                    <input id="defaultAgentRate" class="form-control" type="number" value="2.5" step=".1">
+                </div>
+
+                <div class="form-group" style="margin-bottom:15px">
+                    <label>Default Agency Commission (%)</label>
+                    <input id="defaultAgencyRate" class="form-control" type="number" value="2" step=".1">
+                </div>
+
+                <div class="form-group" style="margin-bottom:15px">
+                    <label>Company Commission (%)</label>
+                    <input id="defaultCompanyRate" class="form-control" type="number" value="1.5" step=".1">
+                </div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-head">
+                <h3>Backup & Data</h3>
+            </div>
+
+            <div class="card-body">
+                <p style="font-size:12px;color:#64748b;line-height:1.6">
+                    In a production deployment, database backups should be
+                    performed automatically and stored separately from the
+                    primary database.
+                </p>
+
+                <div style="display:flex;gap:8px;margin-top:18px;flex-wrap:wrap">
+                    <button class="btn btn-secondary" onclick="backupDemo()">Create Local Backup</button>
+                    <button class="btn btn-secondary" onclick="clearDemoData()">Reset Demo Data</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-head">
+                <h3>System Information</h3>
+            </div>
+
+            <div class="card-body">
+                <div class="detail-grid">
+                    <div class="detail">
+                        <label>Application</label>
+                        <strong>ASHWINI</strong>
+                    </div>
+                    <div class="detail">
+                        <label>Version</label>
+                        <strong>1.0.0</strong>
+                    </div>
+                    <div class="detail">
+                        <label>Company</label>
+                        <strong>Super Deals Mauritius Co Ltd</strong>
+                    </div>
+                    <div class="detail">
+                        <label>Environment</label>
+                        <strong>Browser Demo</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+</main>
+</div>
+</div>
+
+<!-- MODAL -->
+<div id="modalOverlay" class="modal-overlay" onclick="closeModalOutside(event)">
+    <div class="modal">
+        <div class="modal-head">
+            <h3 id="modalTitle">Form</h3>
+            <button class="close" onclick="closeModal()">✕</button>
+        </div>
+        <div id="modalBody" class="modal-body"></div>
+    </div>
+</div>
+
+<div id="toastContainer" class="toast-container"></div>
 
 <script>
+/* ============================================================
+   ASHWINI FRONT-END APPLICATION
+   Single-file browser demonstration
+   ============================================================ */
 
-document.getElementById("tenantForm").addEventListener("submit", function(e){
+const STORAGE_KEY = "ASHWINI_DATABASE_V1";
 
-e.preventDefault();
+let db = {
+    clients: [
+        {
+            id:"ASH-2026-0001",
+            name:"Jean Pierre Ltd",
+            email:"jeanpierre@example.com",
+            phone:"+230 5 700 1001",
+            address:"Port Louis, Mauritius",
+            type:"Corporate",
+            referrerType:"Agent",
+            referrer:"AG-001",
+            referrerName:"Michael Joseph",
+            agency:"AGY-001",
+            agencyName:"Island Partner Agency",
+            status:"Active",
+            registered:"2026-09-01",
+            notes:"Original referral protected."
+        },
+        {
+            id:"ASH-2026-0002",
+            name:"Sarah Mootoosamy",
+            email:"sarah@example.com",
+            phone:"+230 5 700 1002",
+            address:"Curepipe, Mauritius",
+            type:"Individual",
+            referrerType:"Agent",
+            referrer:"AG-002",
+            referrerName:"David Ram",
+            agency:"AGY-002",
+            agencyName:"Mauritius Business Partners",
+            status:"Pending",
+            registered:"2026-09-08",
+            notes:"Awaiting transaction confirmation."
+        },
+        {
+            id:"ASH-2026-0003",
+            name:"Ocean View Holdings",
+            email:"contact@oceanview.example",
+            phone:"+230 5 700 1003",
+            address:"Grand Baie, Mauritius",
+            type:"Corporate",
+            referrerType:"Agent",
+            referrer:"AG-001",
+            referrerName:"Michael Joseph",
+            agency:"AGY-001",
+            agencyName:"Island Partner Agency",
+            status:"Completed",
+            registered:"2026-09-12",
+            notes:"Completed transaction."
+        }
+    ],
 
-const fields = this.querySelectorAll("input, select, textarea");
+    agents:[
+        {
+            id:"AG-001",
+            name:"Michael Joseph",
+            email:"michael@example.com",
+            phone:"+230 5 711 1001",
+            status:"Active"
+        },
+        {
+            id:"AG-002",
+            name:"David Ram",
+            email:"david@example.com",
+            phone:"+230 5 711 1002",
+            status:"Active"
+        },
+        {
+            id:"AG-003",
+            name:"Kevin Thomas",
+            email:"kevin@example.com",
+            phone:"+230 5 711 1003",
+            status:"Inactive"
+        }
+    ],
 
-let message = "🏡 NEW VILLA APPLICATION%0A%0A";
+    agencies:[
+        {
+            id:"AGY-001",
+            name:"Island Partner Agency",
+            contact:"Amanda Lee",
+            email:"contact@islandagency.example",
+            phone:"+230 5 720 1001",
+            status:"Active"
+        },
+        {
+            id:"AGY-002",
+            name:"Mauritius Business Partners",
+            contact:"Brian Wong",
+            email:"info@mbp.example",
+            phone:"+230 5 720 1002",
+            status:"Active"
+        }
+    ],
 
-fields.forEach(field => {
-message += field.placeholder
-? field.placeholder + ": " + field.value + "%0A"
-: field.value + "%0A";
+    transactions:[
+        {
+            id:"TRX-0001",
+            clientId:"ASH-2026-0001",
+            type:"Property",
+            value:850000,
+            agencyId:"AGY-001",
+            status:"Processing",
+            date:"2026-09-05"
+        },
+        {
+            id:"TRX-0002",
+            clientId:"ASH-2026-0002",
+            type:"Investment",
+            value:450000,
+            agencyId:"AGY-002",
+            status:"Pending",
+            date:"2026-09-10"
+        },
+        {
+            id:"TRX-0003",
+            clientId:"ASH-2026-0003",
+            type:"Property",
+            value:1250000,
+            agencyId:"AGY-001",
+            status:"Completed",
+            date:"2026-09-15"
+        }
+    ],
+
+    commissions:[
+        {
+            id:"COM-0001",
+            transactionId:"TRX-0001",
+            clientId:"ASH-2026-0001",
+            recipient:"Michael Joseph",
+            rate:2.5,
+            amount:21250,
+            status:"Pending",
+            date:"2026-09-05"
+        },
+        {
+            id:"COM-0002",
+            transactionId:"TRX-0003",
+            clientId:"ASH-2026-0003",
+            recipient:"Michael Joseph",
+            rate:2.5,
+            amount:31250,
+            status:"Paid",
+            date:"2026-09-15"
+        }
+    ],
+
+    assignments:[
+        {
+            id:"ASN-0001",
+            clientId:"ASH-2026-0001",
+            agencyId:"AGY-001",
+            assignedBy:"Super Admin",
+            date:"2026-09-01",
+            status:"Active"
+        },
+        {
+            id:"ASN-0002",
+            clientId:"ASH-2026-0002",
+            agencyId:"AGY-002",
+            assignedBy:"Super Admin",
+            date:"2026-09-08",
+            status:"Active"
+        }
+    ],
+
+    documents:[
+        {
+            id:"DOC-0001",
+            fileName:"Client_KYC_JeanPierre.pdf",
+            clientId:"ASH-2026-0001",
+            type:"KYC",
+            uploadedBy:"Super Admin",
+            date:"2026-09-01",
+            status:"Verified"
+        },
+        {
+            id:"DOC-0002",
+            fileName:"Property_Documents.pdf",
+            clientId:"ASH-2026-0003",
+            type:"Transaction",
+            uploadedBy:"Super Admin",
+            date:"2026-09-15",
+            status:"Pending Review"
+        }
+    ],
+
+    users:[
+        {
+            id:"USR-001",
+            name:"Super Admin",
+            email:"admin@superdeals.mu",
+            role:"Super Admin",
+            lastLogin:"2026-09-30 18:00",
+            status:"Active"
+        },
+        {
+            id:"USR-002",
+            name:"Company Staff",
+            email:"staff@superdeals.mu",
+            role:"Company Staff",
+            lastLogin:"2026-09-29 14:30",
+            status:"Active"
+        },
+        {
+            id:"USR-003",
+            name:"Michael Joseph",
+            email:"michael@example.com",
+            role:"Agent",
+            lastLogin:"2026-09-28 09:20",
+            status:"Active"
+        }
+    ],
+
+    referralHistory:[
+        {
+            id:"REF-H-0001",
+            clientId:"ASH-2026-0001",
+            previous:"Agent → Super Deals Mauritius",
+            current:"Agent → Super Deals Mauritius → Island Partner Agency → Client",
+            changedBy:"Super Admin",
+            date:"2026-09-01",
+            authorization:"Approved"
+        }
+    ],
+
+    commissionHistory:[
+        {
+            id:"COM-H-0001",
+            commissionId:"COM-0001",
+            oldValue:"0%",
+            newValue:"2.5%",
+            changedBy:"Super Admin",
+            date:"2026-09-05"
+        }
+    ],
+
+    notifications:[
+        {
+            id:"N-001",
+            title:"New client registered",
+            text:"ASH-2026-0003 has been registered successfully.",
+            time:"2026-09-15 10:32",
+            type:"success",
+            read:false
+        },
+        {
+            id:"N-002",
+            title:"Commission pending",
+            text:"Commission COM-0001 is awaiting processing.",
+            time:"2026-09-05 14:15",
+            type:"warning",
+            read:false
+        },
+        {
+            id:"N-003",
+            title:"Security audit",
+            text:"Daily audit verification completed.",
+            time:"2026-09-30 08:00",
+            type:"info",
+            read:true
+        }
+    ],
+
+    auditLogs:[
+        {
+            id:"AUD-0001",
+            timestamp:"2026-09-30 18:00:10",
+            user:"Super Admin",
+            action:"LOGIN",
+            entity:"User",
+            entityId:"USR-001",
+            device:"Browser",
+            result:"Success"
+        },
+        {
+            id:"AUD-0002",
+            timestamp:"2026-09-15 10:32:44",
+            user:"Super Admin",
+            action:"CLIENT_CREATED",
+            entity:"Client",
+            entityId:"ASH-2026-0003",
+            device:"Browser",
+            result:"Success"
+        },
+        {
+            id:"AUD-0003",
+            timestamp:"2026-09-15 10:35:11",
+            user:"Super Admin",
+            action:"TRANSACTION_CREATED",
+            entity:"Transaction",
+            entityId:"TRX-0003",
+            device:"Browser",
+            result:"Success"
+        }
+    ],
+
+    settings:{
+        sessionTimeout:30,
+        maxLoginAttempts:5,
+        passwordLength:10,
+        twoFactor:false,
+        auditEnabled:true,
+        notifySecurity:true,
+        defaultAgentRate:2.5,
+        defaultAgencyRate:2,
+        defaultCompanyRate:1.5
+    }
+};
+
+/* ---------------- STORAGE ---------------- */
+
+function loadDB(){
+    try{
+        const saved=localStorage.getItem(STORAGE_KEY);
+        if(saved) db=JSON.parse(saved);
+    }catch(e){
+        console.error(e);
+    }
+}
+
+function saveDB(){
+    localStorage.setItem(STORAGE_KEY,JSON.stringify(db));
+}
+
+/* ---------------- HELPERS ---------------- */
+
+function money(value){
+    return "Rs " + Number(value||0).toLocaleString("en-MU",{
+        minimumFractionDigits:0,
+        maximumFractionDigits:0
+    });
+}
+
+function escapeHTML(value){
+    return String(value ?? "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+}
+
+function today(){
+    return new Date().toISOString().slice(0,10);
+}
+
+function now(){
+    const d=new Date();
+    return d.getFullYear()+"-"+
+        String(d.getMonth()+1).padStart(2,"0")+"-"+
+        String(d.getDate()).padStart(2,"0")+" "+
+        String(d.getHours()).padStart(2,"0")+":"+
+        String(d.getMinutes()).padStart(2,"0")+":"+
+        String(d.getSeconds()).padStart(2,"0");
+}
+
+function generateId(prefix){
+    const collectionMap={
+        ASH:db.clients,
+        AG:db.agents,
+        AGY:db.agencies,
+        TRX:db.transactions,
+        COM:db.commissions,
+        ASN:db.assignments,
+        DOC:db.documents,
+        USR:db.users,
+        AUD:db.auditLogs
+    };
+
+    const list=collectionMap[prefix]||[];
+
+    let number=list.length+1;
+
+    while(list.some(x=>String(x.id).endsWith(String(number).padStart(4,"0")))){
+        number++;
+    }
+
+    if(prefix==="ASH"){
+        return "ASH-"+new Date().getFullYear()+"-"+String(number).padStart(4,"0");
+    }
+
+    return prefix+"-"+String(number).padStart(4,"0");
+}
+
+function badge(status){
+    const map={
+        Active:"badge-success",
+        Completed:"badge-success",
+        Paid:"badge-success",
+        Verified:"badge-success",
+        Pending:"badge-warning",
+        "Pending Review":"badge-warning",
+        Processing:"badge-info",
+        Inactive:"badge-neutral",
+        Cancelled:"badge-danger",
+        Approved:"badge-success",
+        Success:"badge-success",
+        Failed:"badge-danger"
+    };
+
+    return `<span class="badge ${map[status]||"badge-neutral"}">${escapeHTML(status)}</span>`;
+}
+
+function clientName(id){
+    const c=db.clients.find(x=>x.id===id);
+    return c?c.name:"Unknown Client";
+}
+
+function agencyName(id){
+    const a=db.agencies.find(x=>x.id===id);
+    return a?a.name:"Unassigned";
+}
+
+function addAudit(action,entity,entityId,result="Success"){
+    if(!db.settings.auditEnabled)return;
+
+    db.auditLogs.unshift({
+        id:generateId("AUD"),
+        timestamp:now(),
+        user:"Super Admin",
+        action,
+        entity,
+        entityId,
+        device:"Browser",
+        result
+    });
+
+    saveDB();
+}
+
+/* ---------------- LOGIN ---------------- */
+
+function togglePassword(){
+    const input=document.getElementById("loginPassword");
+    input.type=input.type==="password"?"text":"password";
+}
+
+document.getElementById("loginForm").addEventListener("submit",function(e){
+    e.preventDefault();
+
+    const email=document.getElementById("loginEmail").value.trim();
+    const password=document.getElementById("loginPassword").value;
+
+    if(email==="admin@superdeals.mu" && password==="admin123"){
+        document.getElementById("loginScreen").classList.add("hidden");
+
+        addAudit("LOGIN","User","USR-001","Success");
+
+        renderAll();
+        toast("Secure login successful.","success");
+    }else{
+        addAudit("LOGIN_FAILED","User",email,"Failed");
+        toast("Invalid login credentials.","error");
+    }
 });
 
-window.open(
-"https://wa.me/23059237053?text=" + message,
-"_blank"
-);
+/* ---------------- NAVIGATION ---------------- */
 
+const pageTitles={
+    dashboard:"Dashboard",
+    clients:"Client Management",
+    referrals:"Referral Chains",
+    transactions:"Transactions",
+    commissions:"Commission Management",
+    agents:"Agents",
+    agencies:"Partner Agencies",
+    assignments:"Client Assignments",
+    documents:"Documents",
+    users:"Users & Roles",
+    notifications:"Notifications",
+    audit:"Audit Trail",
+    settings:"System Settings"
+};
+
+document.querySelectorAll(".nav-item").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+        showPage(btn.dataset.page);
+    });
 });
+
+function showPage(page){
+    document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+    document.querySelectorAll(".nav-item").forEach(b=>b.classList.remove("active"));
+
+    const target=document.getElementById(page);
+    if(target)target.classList.add("active");
+
+    const nav=document.querySelector(`.nav-item[data-page="${page}"]`);
+    if(nav)nav.classList.add("active");
+
+    document.getElementById("pageTitle").textContent=pageTitles[page]||page;
+
+    document.getElementById("sidebar").classList.remove("open");
+
+    renderPage(page);
+}
+
+function renderPage(page){
+    switch(page){
+        case"dashboard":renderDashboard();break;
+        case"clients":renderClients();break;
+        case"referrals":renderReferrals();break;
+        case"transactions":renderTransactions();break;
+        case"commissions":renderCommissions();break;
+        case"agents":renderAgents();break;
+        case"agencies":renderAgencies();break;
+        case"assignments":renderAssignments();break;
+        case"documents":renderDocuments();break;
+        case"users":renderUsers();break;
+        case"notifications":renderNotifications();break;
+        case"audit":renderAudit();break;
+    }
+}
+
+function toggleSidebar(){
+    document.getElementById("sidebar").classList.toggle("open");
+}
+
+/* ---------------- DASHBOARD ---------------- */
+
+function renderDashboard(){
+
+    document.getElementById("statClients").textContent=db.clients.length;
+
+    document.getElementById("statTransactions").textContent=
+        db.transactions.filter(t=>t.status!=="Cancelled").length;
+
+    const total=db.commissions.reduce((sum,c)=>sum+Number(c.amount||0),0);
+
+    document.getElementById("statCommission").textContent=money(total);
+
+    document.getElementById("statAudit").textContent=db.auditLogs.length;
+
+    document.getElementById("refHistoryCount").textContent=db.referralHistory.length;
+    document.getElementById("commissionHistoryCount").textContent=db.commissionHistory.length;
+    document.getElementById("auditCountSmall").textContent=db.auditLogs.length;
+
+    const activity=document.getElementById("recentActivity");
+
+    activity.innerHTML=db.auditLogs.slice(0,6).map(a=>`
+        <div class="activity-item">
+            <div class="activity-dot"></div>
+            <div>
+                <div class="activity-text">
+                    <strong>${escapeHTML(a.action)}</strong>
+                    ${escapeHTML(a.entityId)}
+                </div>
+                <div class="activity-time">
+                    ${escapeHTML(a.timestamp)} · ${escapeHTML(a.user)}
+                </div>
+            </div>
+        </div>
+    `).join("");
+
+    const rows=db.clients.slice(-5).reverse();
+
+    document.getElementById("dashboardClients").innerHTML=rows.map(c=>`
+        <tr>
+            <td><span class="id">${escapeHTML(c.id)}</span></td>
+            <td><strong>${escapeHTML(c.name)}</strong></td>
+            <td>${escapeHTML(c.referrerName||"—")}</td>
+            <td>${badge(c.status)}</td>
+            <td>${escapeHTML(c.registered)}</td>
+        </tr>
+    `).join("");
+}
+
+/* ---------------- CLIENTS ---------------- */
+
+function renderClients(){
+
+    const search=(document.getElementById("clientSearch")?.value||"").toLowerCase();
+    const status=document.getElementById("clientStatusFilter")?.value||"";
+
+    const rows=db.clients.filter(c=>{
+        const matches=
+            c.id.toLowerCase().includes(search)||
+            c.name.toLowerCase().includes(search)||
+            c.email.toLowerCase().includes(search)||
+            c.phone.toLowerCase().includes(search);
+
+        return matches&&(!status||c.status===status);
+    });
+
+    document.getElementById("clientsTable").innerHTML=rows.length?rows.map(c=>`
+        <tr>
+            <td><span class="id">${escapeHTML(c.id)}</span></td>
+            <td>
+                <strong>${escapeHTML(c.name)}</strong>
+                <div style="font-size:10px;color:#94a3b8">${escapeHTML(c.type)}</div>
+            </td>
+            <td>
+                ${escapeHTML(c.email)}
+                <div style="font-size:10px;color:#94a3b8">${escapeHTML(c.phone)}</div>
+            </td>
+            <td>
+                <strong>${escapeHTML(c.referrerName||"—")}</strong>
+                <div style="font-size:10px;color:#94a3b8">${escapeHTML(c.referrer||"")}</div>
+            </td>
+            <td>
+                <span class="badge badge-purple">Protected</span>
+                <div style="font-size:9px;color:#94a3b8;margin-top:3px">
+                    ${escapeHTML(c.agencyName||"No Agency")}
+                </div>
+            </td>
+            <td>${badge(c.status)}</td>
+            <td>${escapeHTML(c.registered)}</td>
+            <td>
+                <button class="btn btn-secondary btn-sm"
+                        onclick="viewClient('${c.id}')">View</button>
+                <button class="btn btn-secondary btn-sm"
+                        onclick="editClient('${c.id}')">Edit</button>
+            </td>
+        </tr>
+    `).join(""):`
+        <tr><td colspan="8">
+            <div class="empty">
+                <div class="empty-icon">👥</div>
+                No clients found.
+            </div>
+        </td></tr>
+    `;
+}
+
+/* ---------------- CLIENT MODAL ---------------- */
+
+function openClientModal(editId=null){
+
+    const existing=editId?db.clients.find(c=>c.id===editId):null;
+
+    document.getElementById("modalTitle").textContent=
+        existing?"Edit Client":"Register New Client";
+
+    document.getElementById("modalBody").innerHTML=`
+
+        <form id="clientForm">
+
+            ${existing?`
+                <div style="background:#eff6ff;padding:12px;border-radius:8px;margin-bottom:15px">
+                    <div style="font-size:10px;color:#64748b">ASHWINI CLIENT ID</div>
+                    <strong style="color:#2563eb">${escapeHTML(existing.id)}</strong>
+                </div>
+            `:""}
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label>Client Full Name *</label>
+                    <input id="clientName" class="form-control"
+                           value="${escapeHTML(existing?.name||"")}" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Client Type</label>
+                    <select id="clientType" class="form-control">
+                        <option ${existing?.type==="Individual"?"selected":""}>Individual</option>
+                        <option ${existing?.type==="Corporate"?"selected":""}>Corporate</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Email Address *</label>
+                    <input id="clientEmail" class="form-control" type="email"
+                           value="${escapeHTML(existing?.email||"")}" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Phone Number *</label>
+                    <input id="clientPhone" class="form-control"
+                           value="${escapeHTML(existing?.phone||"")}" required>
+                </div>
+
+                <div class="form-group full">
+                    <label>Address</label>
+                    <input id="clientAddress" class="form-control"
+                           value="${escapeHTML(existing?.address||"")}">
+                </div>
+
+                <div class="form-group">
+                    <label>Original Referring Agent *</label>
+                    <select id="clientAgent" class="form-control" required>
+                        <option value="">Select Agent</option>
+                        ${db.agents.filter(a=>a.status==="Active").map(a=>`
+                            <option value="${a.id}"
+                                ${existing?.referrer===a.id?"selected":""}>
+                                ${escapeHTML(a.id)} - ${escapeHTML(a.name)}
+                            </option>
+                        `).join("")}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Partner Agency</label>
+                    <select id="clientAgency" class="form-control">
+                        <option value="">Select Agency</option>
+                        ${db.agencies.filter(a=>a.status==="Active").map(a=>`
+                            <option value="${a.id}"
+                                ${existing?.agency===a.id?"selected":""}>
+                                ${escapeHTML(a.name)}
+                            </option>
+                        `).join("")}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Status</label>
+                    <select id="clientStatus" class="form-control">
+                        ${["Active","Pending","Completed","Inactive"].map(s=>`
+                            <option ${existing?.status===s?"selected":""}>${s}</option>
+                        `).join("")}
+                    </select>
+                </div>
+
+                <div class="form-group full">
+                    <label>Notes</label>
+                    <textarea id="clientNotes" class="form-control">${escapeHTML(existing?.notes||"")}</textarea>
+                </div>
+
+            </div>
+
+            <div style="margin-top:16px;background:#f8fafc;padding:12px;border-radius:8px;font-size:10px;color:#64748b">
+                🛡️ The original referral relationship is recorded as part of the
+                client's permanent ASHWINI history.
+            </div>
+
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                <button class="btn btn-primary">${existing?"Save Changes":"Register Client"}</button>
+            </div>
+        </form>
+    `;
+
+    document.getElementById("clientForm").onsubmit=e=>{
+        e.preventDefault();
+
+        const agentId=document.getElementById("clientAgent").value;
+        const agencyId=document.getElementById("clientAgency").value;
+
+        const agent=db.agents.find(a=>a.id===agentId);
+        const agency=db.agencies.find(a=>a.id===agencyId);
+
+        if(existing){
+
+            const oldRef=existing.referrer;
+
+            existing.name=document.getElementById("clientName").value.trim();
+            existing.type=document.getElementById("clientType").value;
+            existing.email=document.getElementById("clientEmail").value.trim();
+            existing.phone=document.getElementById("clientPhone").value.trim();
+            existing.address=document.getElementById("clientAddress").value.trim();
+            existing.referrer=agentId;
+            existing.referrerName=agent?.name||"";
+            existing.agency=agencyId;
+            existing.agencyName=agency?.name||"";
+            existing.status=document.getElementById("clientStatus").value;
+            existing.notes=document.getElementById("clientNotes").value.trim();
+
+            if(oldRef!==agentId){
+                db.referralHistory.unshift({
+                    id:"REF-H-"+String(db.referralHistory.length+1).padStart(4,"0"),
+                    clientId:existing.id,
+                    previous:"Original Agent: "+oldRef,
+                    current:"Original Agent: "+agentId,
+                    changedBy:"Super Admin",
+                    date:today(),
+                    authorization:"Approved"
+                });
+
+                addAudit("REFERRAL_CHANGED","Client",existing.id);
+            }
+
+            addAudit("CLIENT_UPDATED","Client",existing.id);
+            toast("Client updated successfully.","success");
+
+        }else{
+
+            const client={
+                id:generateId("ASH"),
+                name:document.getElementById("clientName").value.trim(),
+                type:document.getElementById("clientType").value,
+                email:document.getElementById("clientEmail").value.trim(),
+                phone:document.getElementById("clientPhone").value.trim(),
+                address:document.getElementById("clientAddress").value.trim(),
+                referrer:agentId,
+                referrerName:agent?.name||"",
+                agency:agencyId,
+                agencyName:agency?.name||"",
+                status:document.getElementById("clientStatus").value,
+                registered:today(),
+                notes:document.getElementById("clientNotes").value.trim()
+            };
+
+            db.clients.push(client);
+
+            db.referralHistory.unshift({
+                id:"REF-H-"+String(db.referralHistory.length+1).padStart(4,"0"),
+                clientId:client.id,
+                previous:"Agent → Super Deals Mauritius",
+                current:`${client.referrerName} → Super Deals Mauritius → ${client.agencyName||"Pending Agency"} → Client`,
+                changedBy:"Super Admin",
+                date:today(),
+                authorization:"Approved"
+            });
+
+            db.notifications.unshift({
+                id:"N-"+Date.now(),
+                title:"New client registered",
+                text:`${client.id} - ${client.name} has been registered.`,
+                time:now(),
+                type:"success",
+                read:false
+            });
+
+            addAudit("CLIENT_CREATED","Client",client.id);
+
+            toast(`Client ${client.id} registered successfully.`,"success");
+        }
+
+        saveDB();
+        closeModal();
+        renderAll();
+    };
+
+    openModal();
+}
+
+function editClient(id){
+    openClientModal(id);
+}
+
+function viewClient(id){
+
+    const c=db.clients.find(x=>x.id===id);
+    if(!c)return;
+
+    const transactions=db.transactions.filter(t=>t.clientId===id);
+    const commissions=db.commissions.filter(x=>x.clientId===id);
+
+    document.getElementById("modalTitle").textContent="Client Profile";
+
+    document.getElementById("modalBody").innerHTML=`
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px">
+            <div>
+                <div class="id" style="font-size:16px">${escapeHTML(c.id)}</div>
+                <h2 style="font-size:20px;margin-top:4px">${escapeHTML(c.name)}</h2>
+            </div>
+            ${badge(c.status)}
+        </div>
+
+        <div class="detail-grid">
+            <div class="detail"><label>Email</label><strong>${escapeHTML(c.email)}</strong></div>
+            <div class="detail"><label>Phone</label><strong>${escapeHTML(c.phone)}</strong></div>
+            <div class="detail"><label>Type</label><strong>${escapeHTML(c.type)}</strong></div>
+            <div class="detail"><label>Registered</label><strong>${escapeHTML(c.registered)}</strong></div>
+            <div class="detail"><label>Original Referrer</label><strong>${escapeHTML(c.referrerName)}</strong></div>
+            <div class="detail"><label>Partner Agency</label><strong>${escapeHTML(c.agencyName||"Pending")}</strong></div>
+        </div>
+
+        <div style="margin-top:20px">
+            <h3 style="font-size:13px;margin-bottom:10px">Protected Referral Chain</h3>
+            <div style="background:#eff6ff;padding:14px;border-radius:9px;color:#1e40af;font-size:12px">
+                🛡️ ${escapeHTML(c.referrerName)} →
+                Super Deals Mauritius →
+                ${escapeHTML(c.agencyName||"Partner Agency")} →
+                ${escapeHTML(c.name)}
+            </div>
+        </div>
+
+        <div style="margin-top:20px">
+            <h3 style="font-size:13px;margin-bottom:10px">
+                Transactions (${transactions.length})
+            </h3>
+
+            ${transactions.length?transactions.map(t=>`
+                <div style="padding:10px;background:#f8fafc;border-radius:7px;margin-bottom:6px;font-size:11px">
+                    <strong>${escapeHTML(t.id)}</strong>
+                    · ${escapeHTML(t.type)}
+                    · ${money(t.value)}
+                    · ${badge(t.status)}
+                </div>
+            `).join(""):`<div style="color:#94a3b8;font-size:11px">No transactions.</div>`}
+        </div>
+
+        <div style="margin-top:20px">
+            <h3 style="font-size:13px;margin-bottom:10px">
+                Commissions (${commissions.length})
+            </h3>
+
+            ${commissions.length?commissions.map(c=>`
+                <div style="padding:10px;background:#f8fafc;border-radius:7px;margin-bottom:6px;font-size:11px">
+                    <strong>${escapeHTML(c.id)}</strong>
+                    · ${c.rate}%
+                    · ${money(c.amount)}
+                    · ${badge(c.status)}
+                </div>
+            `).join(""):`<div style="color:#94a3b8;font-size:11px">No commissions.</div>`}
+        </div>
+
+        <div class="form-actions">
+            <button class="btn btn-secondary" onclick="closeModal()">Close</button>
+            <button class="btn btn-primary" onclick="closeModal();editClient('${c.id}')">Edit Client</button>
+        </div>
+    `;
+
+    openModal();
+}
+
+/* ---------------- REFERRALS ---------------- */
+
+function renderReferrals(){
+
+    const select=document.getElementById("referralClientSelect");
+
+    select.innerHTML=db.clients.map(c=>`
+        <option value="${c.id}">${escapeHTML(c.id)} - ${escapeHTML(c.name)}</option>
+    `).join("");
+
+    renderReferralChain();
+
+    document.getElementById("referralHistoryTable").innerHTML=
+        db.referralHistory.map(r=>`
+            <tr>
+                <td><span class="id">${escapeHTML(r.id)}</span></td>
+                <td>${escapeHTML(r.clientId)}</td>
+                <td>${escapeHTML(r.previous)}</td>
+                <td>${escapeHTML(r.current)}</td>
+                <td>${escapeHTML(r.changedBy)}</td>
+                <td>${escapeHTML(r.date)}</td>
+                <td>${badge(r.authorization)}</td>
+            </tr>
+        `).join("");
+}
+
+function renderReferralChain(){
+
+    const id=document.getElementById("referralClientSelect").value;
+    const c=db.clients.find(x=>x.id===id);
+
+    if(!c){
+        document.getElementById("referralChainDisplay").innerHTML=
+            `<div class="empty">No client selected.</div>`;
+        return;
+    }
+
+    document.getElementById("referralChainDisplay").innerHTML=`
+        <div class="chain">
+
+            <div class="chain-node">
+                <div class="chain-avatar" style="background:#7c3aed">A</div>
+                <h4>${escapeHTML(c.referrerName||"Agent")}</h4>
+                <p>Original Agent</p>
+            </div>
+
+            <div class="chain-arrow">→</div>
+
+            <div class="chain-node">
+                <div class="chain-avatar" style="background:#2563eb">SD</div>
+                <h4>Super Deals Mauritius</h4>
+                <p>Company</p>
+            </div>
+
+            <div class="chain-arrow">→</div>
+
+            <div class="chain-node">
+                <div class="chain-avatar" style="background:#0891b2">PA</div>
+                <h4>${escapeHTML(c.agencyName||"Partner Agency")}</h4>
+                <p>Partner Agency</p>
+            </div>
+
+            <div class="chain-arrow">→</div>
+
+            <div class="chain-node">
+                <div class="chain-avatar" style="background:#16a34a">C</div>
+                <h4>${escapeHTML(c.name)}</h4>
+                <p>Protected Client</p>
+            </div>
+
+        </div>
+
+        <div style="background:#f0fdf4;padding:15px;margin:0 20px 20px;border-radius:9px;color:#166534;font-size:11px">
+            🛡️ <strong>Referral Protected.</strong>
+            The original referral party is permanently associated with this client record.
+            Changes require authorized action and are written to the referral history.
+        </div>
+    `;
+}
+
+/* ---------------- TRANSACTIONS ---------------- */
+
+function renderTransactions(){
+
+    const search=(document.getElementById("transactionSearch")?.value||"").toLowerCase();
+    const status=document.getElementById("transactionStatusFilter")?.value||"";
+
+    const rows=db.transactions.filter(t=>{
+        const client=clientName(t.clientId).toLowerCase();
+
+        return(
+            (t.id.toLowerCase().includes(search)||client.includes(search))&&
+            (!status||t.status===status)
+        );
+    });
+
+    document.getElementById("transactionsTable").innerHTML=rows.length?rows.map(t=>`
+        <tr>
+            <td><span class="id">${escapeHTML(t.id)}</span></td>
+            <td>
+                <strong>${escapeHTML(clientName(t.clientId))}</strong>
+                <div style="font-size:9px;color:#94a3b8">${escapeHTML(t.clientId)}</div>
+            </td>
+            <td>${escapeHTML(t.type)}</td>
+            <td><strong>${money(t.value)}</strong></td>
+            <td>${escapeHTML(agencyName(t.agencyId))}</td>
+            <td>${badge(t.status)}</td>
+            <td>${escapeHTML(t.date)}</td>
+            <td>
+                <button class="btn btn-secondary btn-sm"
+                    onclick="viewTransaction('${t.id}')">View</button>
+            </td>
+        </tr>
+    `).join(""):`
+        <tr><td colspan="8"><div class="empty">No transactions found.</div></td></tr>
+    `;
+}
+
+function openTransactionModal(){
+
+    document.getElementById("modalTitle").textContent="Add Transaction";
+
+    document.getElementById("modalBody").innerHTML=`
+        <form id="transactionForm">
+
+            <div class="form-grid">
+
+                <div class="form-group full">
+                    <label>Client *</label>
+                    <select id="transactionClient" class="form-control" required>
+                        <option value="">Select Protected Client</option>
+                        ${db.clients.map(c=>`
+                            <option value="${c.id}">
+                                ${escapeHTML(c.id)} - ${escapeHTML(c.name)}
+                            </option>
+                        `).join("")}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Transaction Type *</label>
+                    <select id="transactionType" class="form-control">
+                        <option>Property</option>
+                        <option>Investment</option>
+                        <option>Business</option>
+                        <option>Insurance</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Transaction Value (Rs) *</label>
+                    <input id="transactionValue" class="form-control"
+                           type="number" min="0" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Partner Agency</label>
+                    <select id="transactionAgency" class="form-control">
+                        ${db.agencies.map(a=>`
+                            <option value="${a.id}">
+                                ${escapeHTML(a.name)}
+                            </option>
+                        `).join("")}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Status</label>
+                    <select id="transactionStatus" class="form-control">
+                        <option>Pending</option>
+                        <option>Processing</option>
+                        <option>Completed</option>
+                        <option>Cancelled</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                <button class="btn btn-primary">Create Transaction</button>
+            </div>
+
+        </form>
+    `;
+
+    document.getElementById("transactionForm").onsubmit=e=>{
+        e.preventDefault();
+
+        const transaction={
+            id:generateId("TRX"),
+            clientId:document.getElementById("transactionClient").value,
+            type:document.getElementById("transactionType").value,
+            value:Number(document.getElementById("transactionValue").value),
+            agencyId:document.getElementById("transactionAgency").value,
+            status:document.getElementById("transactionStatus").value,
+            date:today()
+        };
+
+        db.transactions.push(transaction);
+
+        addAudit("TRANSACTION_CREATED","Transaction",transaction.id);
+
+        saveDB();
+        closeModal();
+        renderAll();
+
+        toast("Transaction created successfully.","success");
+    };
+
+    openModal();
+}
+
+function viewTransaction(id){
+
+    const t=db.transactions.find(x=>x.id===id);
+    if(!t)return;
+
+    document.getElementById("modalTitle").textContent="Transaction Details";
+
+    document.getElementById("modalBody").innerHTML=`
+        <div class="detail-grid">
+            <div class="detail"><label>Transaction ID</label><strong>${escapeHTML(t.id)}</strong></div>
+            <div class="detail"><label>Date</label><strong>${escapeHTML(t.date)}</strong></div>
+            <div class="detail"><label>Client</label><strong>${escapeHTML(clientName(t.clientId))}</strong></div>
+            <div class="detail"><label>Type</label><strong>${escapeHTML(t.type)}</strong></div>
+            <div class="detail"><label>Value</label><strong>${money(t.value)}</strong></div>
+            <div class="detail"><label>Agency</label><strong>${escapeHTML(agencyName(t.agencyId))}</strong></div>
+            <div class="detail"><label>Status</label><strong>${badge(t.status)}</strong></div>
+        </div>
+
+        <div style="margin-top:18px;background:#eff6ff;padding:13px;border-radius:8px;font-size:11px;color:#1e40af">
+            🔗 This transaction is linked to the protected ASHWINI client
+            referral record ${escapeHTML(t.clientId)}.
+        </div>
+
+        <div class="form-actions">
+            <button class="btn btn-secondary" onclick="closeModal()">Close</button>
+        </div>
+    `;
+
+    openModal();
+}
+
+/* ---------------- COMMISSIONS ---------------- */
+
+function renderCommissions(){
+
+    const total=db.commissions.reduce((s,c)=>s+Number(c.amount||0),0);
+    const paid=db.commissions.filter(c=>c.status==="Paid")
+        .reduce((s,c)=>s+Number(c.amount||0),0);
+    const pending=db.commissions.filter(c=>c.status==="Pending")
+        .reduce((s,c)=>s+Number(c.amount||0),0);
+
+    document.getElementById("commissionTotal").textContent=money(total);
+    document.getElementById("commissionPaid").textContent=money(paid);
+    document.getElementById("commissionPending").textContent=money(pending);
+    document.getElementById("commissionStructures").textContent=db.commissions.length;
+
+    document.getElementById("commissionsTable").innerHTML=db.commissions.map(c=>`
+        <tr>
+            <td><span class="id">${escapeHTML(c.id)}</span></td>
+            <td>${escapeHTML(c.transactionId)}</td>
+            <td>${escapeHTML(clientName(c.clientId))}</td>
+            <td>${escapeHTML(c.recipient)}</td>
+            <td>${Number(c.rate).toFixed(2)}%</td>
+            <td><strong>${money(c.amount)}</strong></td>
+            <td>${badge(c.status)}</td>
+            <td>${escapeHTML(c.date)}</td>
+        </tr>
+    `).join("");
+
+    document.getElementById("commissionHistoryTable").innerHTML=
+        db.commissionHistory.map(c=>`
+            <tr>
+                <td>${escapeHTML(c.id)}</td>
+                <td>${escapeHTML(c.commissionId)}</td>
+                <td>${escapeHTML(c.oldValue)}</td>
+                <td>${escapeHTML(c.newValue)}</td>
+                <td>${escapeHTML(c.changedBy)}</td>
+                <td>${escapeHTML(c.date)}</td>
+            </tr>
+        `).join("");
+}
+
+function openCommissionModal(){
+
+    document.getElementById("modalTitle").textContent="Create Commission";
+
+    document.getElementById("modalBody").innerHTML=`
+        <form id="commissionForm">
+
+            <div class="form-grid">
+
+                <div class="form-group full">
+                    <label>Transaction *</label>
+                    <select id="commissionTransaction" class="form-control" required>
+                        <option value="">Select Transaction</option>
+                        ${db.transactions.filter(t=>t.status!=="Cancelled").map(t=>`
+                            <option value="${t.id}">
+                                ${escapeHTML(t.id)} -
+                                ${escapeHTML(clientName(t.clientId))} -
+                                ${money(t.value)}
+                            </option>
+                        `).join("")}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Recipient *</label>
+                    <input id="commissionRecipient" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Commission Rate (%) *</label>
+                    <input id="commissionRate" class="form-control"
+                           type="number" step=".01" min="0" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Status</label>
+                    <select id="commissionStatus" class="form-control">
+                        <option>Pending</option>
+                        <option>Paid</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div id="commissionCalculation"
+                 style="margin-top:15px;background:#f8fafc;padding:14px;border-radius:8px;font-size:12px">
+                Select a transaction and enter a commission rate.
+            </div>
+
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                <button class="btn btn-primary">Create Commission</button>
+            </div>
+
+        </form>
+    `;
+
+    const updateCalc=()=>{
+        const transaction=db.transactions.find(
+            t=>t.id===document.getElementById("commissionTransaction").value
+        );
+
+        const rate=Number(document.getElementById("commissionRate").value||0);
+
+        if(transaction){
+            const amount=transaction.value*rate/100;
+
+            document.getElementById("commissionCalculation").innerHTML=`
+                Transaction Value:
+                <strong>${money(transaction.value)}</strong><br>
+                Commission:
+                <strong style="color:#16a34a">${money(amount)}</strong>
+            `;
+        }
+    };
+
+    document.getElementById("commissionTransaction").onchange=updateCalc;
+    document.getElementById("commissionRate").oninput=updateCalc;
+
+    document.getElementById("commissionForm").onsubmit=e=>{
+        e.preventDefault();
+
+        const transaction=db.transactions.find(
+            t=>t.id===document.getElementById("commissionTransaction").value
+        );
+
+        if(!transaction)return;
+
+        const rate=Number(document.getElementById("commissionRate").value);
+        const commission={
+            id:generateId("COM"),
+            transactionId:transaction.id,
+            clientId:transaction.clientId,
+            recipient:document.getElementById("commissionRecipient").value.trim(),
+            rate,
+            amount:transaction.value*rate/100,
+            status:document.getElementById("commissionStatus").value,
+            date:today()
+        };
+
+        db.commissions.push(commission);
+
+        db.commissionHistory.unshift({
+            id:"COM-H-"+String(db.commissionHistory.length+1).padStart(4,"0"),
+            commissionId:commission.id,
+            oldValue:"0%",
+            newValue:rate+"%",
+            changedBy:"Super Admin",
+            date:today()
+        });
+
+        addAudit("COMMISSION_CREATED","Commission",commission.id);
+
+        saveDB();
+        closeModal();
+        renderAll();
+
+        toast("Commission created successfully.","success");
+    };
+
+    openModal();
+}
+
+/* ---------------- AGENTS ---------------- */
+
+function renderAgents(){
+
+    document.getElementById("agentsTable").innerHTML=db.agents.map(a=>{
+
+        const clients=db.clients.filter(c=>c.referrer===a.id).length;
+
+        const commissions=db.commissions
+            .filter(c=>{
+                const client=db.clients.find(x=>x.id===c.clientId);
+                return client?.referrer===a.id;
+            })
+            .reduce((s,c)=>s+c.amount,0);
+
+        return`
+        <tr>
+            <td><span class="id">${escapeHTML(a.id)}</span></td>
+            <td><strong>${escapeHTML(a.name)}</strong></td>
+            <td>${escapeHTML(a.email)}</td>
+            <td>${escapeHTML(a.phone)}</td>
+            <td>${clients}</td>
+            <td>${money(commissions)}</td>
+            <td>${badge(a.status)}</td>
+            <td>
+                <button class="btn btn-secondary btn-sm"
+                    onclick="toggleAgent('${a.id}')">
+                    ${a.status==="Active"?"Deactivate":"Activate"}
+                </button>
+            </td>
+        </tr>`;
+    }).join("");
+}
+
+function openAgentModal(){
+
+    document.getElementById("modalTitle").textContent="Add Agent";
+
+    document.getElementById("modalBody").innerHTML=`
+        <form id="agentForm">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label>Agent Name *</label>
+                    <input id="agentName" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input id="agentEmail" class="form-control" type="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Phone *</label>
+                    <input id="agentPhone" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Status</label>
+                    <select id="agentStatus" class="form-control">
+                        <option>Active</option>
+                        <option>Inactive</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                <button class="btn btn-primary">Create Agent</button>
+            </div>
+
+        </form>
+    `;
+
+    document.getElementById("agentForm").onsubmit=e=>{
+        e.preventDefault();
+
+        const agent={
+            id:generateId("AG"),
+            name:document.getElementById("agentName").value.trim(),
+            email:document.getElementById("agentEmail").value.trim(),
+            phone:document.getElementById("agentPhone").value.trim(),
+            status:document.getElementById("agentStatus").value
+        };
+
+        db.agents.push(agent);
+
+        addAudit("AGENT_CREATED","Agent",agent.id);
+
+        saveDB();
+        closeModal();
+        renderAll();
+
+        toast("Agent created.","success");
+    };
+
+    openModal();
+}
+
+function toggleAgent(id){
+
+    const agent=db.agents.find(a=>a.id===id);
+
+    if(!agent)return;
+
+    agent.status=agent.status==="Active"?"Inactive":"Active";
+
+    addAudit("AGENT_STATUS_CHANGED","Agent",id);
+
+    saveDB();
+    renderAgents();
+
+    toast("Agent status updated.","success");
+}
+
+/* ---------------- AGENCIES ---------------- */
+
+function renderAgencies(){
+
+    document.getElementById("agenciesTable").innerHTML=db.agencies.map(a=>{
+
+        const clients=db.clients.filter(c=>c.agency===a.id).length;
+        const transactions=db.transactions.filter(t=>t.agencyId===a.id).length;
+
+        return`
+        <tr>
+            <td><span class="id">${escapeHTML(a.id)}</span></td>
+            <td><strong>${escapeHTML(a.name)}</strong></td>
+            <td>${escapeHTML(a.contact)}</td>
+            <td>${escapeHTML(a.email)}</td>
+            <td>${clients}</td>
+            <td>${transactions}</td>
+            <td>${badge(a.status)}</td>
+            <td>
+                <button class="btn btn-secondary btn-sm"
+                    onclick="toggleAgency('${a.id}')">
+                    ${a.status==="Active"?"Deactivate":"Activate"}
+                </button>
+            </td>
+        </tr>`;
+    }).join("");
+}
+
+function openAgencyModal(){
+
+    document.getElementById("modalTitle").textContent="Add Partner Agency";
+
+    document.getElementById("modalBody").innerHTML=`
+        <form id="agencyForm">
+
+            <div class="form-grid">
+
+                <div class="form-group full">
+                    <label>Agency Name *</label>
+                    <input id="agencyName" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Contact Person *</label>
+                    <input id="agencyContact" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input id="agencyEmail" class="form-control" type="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Phone *</label>
+                    <input id="agencyPhone" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Status</label>
+                    <select id="agencyStatus" class="form-control">
+                        <option>Active</option>
+                        <option>Inactive</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                <button class="btn btn-primary">Create Agency</button>
+            </div>
+        </form>
+    `;
+
+    document.getElementById("agencyForm").onsubmit=e=>{
+        e.preventDefault();
+
+        const agency={
+            id:generateId("AGY"),
+            name:document.getElementById("agencyName").value.trim(),
+            contact:document.getElementById("agencyContact").value.trim(),
+            email:document.getElementById("agencyEmail").value.trim(),
+            phone:document.getElementById("agencyPhone").value.trim(),
+            status:document.getElementById("agencyStatus").value
+        };
+
+        db.agencies.push(agency);
+
+        addAudit("AGENCY_CREATED","Agency",agency.id);
+
+        saveDB();
+        closeModal();
+        renderAll();
+
+        toast("Partner agency created.","success");
+    };
+
+    openModal();
+}
+
+function toggleAgency(id){
+
+    const agency=db.agencies.find(a=>a.id===id);
+
+    if(!agency)return;
+
+    agency.status=agency.status==="Active"?"Inactive":"Active";
+
+    addAudit("AGENCY_STATUS_CHANGED","Agency",id);
+
+    saveDB();
+    renderAgencies();
+
+    toast("Agency status updated.","success");
+}
+
+/* ---------------- ASSIGNMENTS ---------------- */
+
+function renderAssignments(){
+
+    document.getElementById("assignmentsTable").innerHTML=db.assignments.map(a=>`
+        <tr>
+            <td><span class="id">${escapeHTML(a.id)}</span></td>
+            <td>
+                <strong>${escapeHTML(clientName(a.clientId))}</strong>
+                <div style="font-size:9px;color:#94a3b8">${escapeHTML(a.clientId)}</div>
+            </td>
+            <td>${escapeHTML(agencyName(a.agencyId))}</td>
+            <td>${escapeHTML(a.assignedBy)}</td>
+            <td>${escapeHTML(a.date)}</td>
+            <td>${badge(a.status)}</td>
+            <td>
+                <button class="btn btn-secondary btn-sm"
+                    onclick="unassignClient('${a.id}')">
+                    Close
+                </button>
+            </td>
+        </tr>
+    `).join("");
+}
+
+function openAssignmentModal(){
+
+    document.getElementById("modalTitle").textContent="Assign Client";
+
+    document.getElementById("modalBody").innerHTML=`
+        <form id="assignmentForm">
+
+            <div class="form-group" style="margin-bottom:15px">
+                <label>Protected Client *</label>
+                <select id="assignmentClient" class="form-control" required>
+                    <option value="">Select Client</option>
+                    ${db.clients.map(c=>`
+                        <option value="${c.id}">
+                            ${escapeHTML(c.id)} - ${escapeHTML(c.name)}
+                        </option>
+                    `).join("")}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Partner Agency *</label>
+                <select id="assignmentAgency" class="form-control" required>
+                    <option value="">Select Agency</option>
+                    ${db.agencies.filter(a=>a.status==="Active").map(a=>`
+                        <option value="${a.id}">
+                            ${escapeHTML(a.name)}
+                        </option>
+                    `).join("")}
+                </select>
+            </div>
+
+            <div style="background:#fff7ed;color:#9a3412;padding:12px;border-radius:8px;margin-top:15px;font-size:11px">
+                ⚠ Assignment does not change the original referring party.
+                The original referral relationship remains protected.
+            </div>
+
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                <button class="btn btn-primary">Create Assignment</button>
+            </div>
+
+        </form>
+    `;
+
+    document.getElementById("assignmentForm").onsubmit=e=>{
+        e.preventDefault();
+
+        const clientId=document.getElementById("assignmentClient").value;
+        const agencyId=document.getElementById("assignmentAgency").value;
+
+        const assignment={
+            id:generateId("ASN"),
+            clientId,
+            agencyId,
+            assignedBy:"Super Admin",
+            date:today(),
+            status:"Active"
+        };
+
+        db.assignments.push(assignment);
+
+        const client=db.clients.find(c=>c.id===clientId);
+        const agency=db.agencies.find(a=>a.id===agencyId);
+
+        if(client){
+            client.agency=agencyId;
+            client.agencyName=agency?.name||"";
+        }
+
+        db.referralHistory.unshift({
+            id:"REF-H-"+String(db.referralHistory.length+1).padStart(4,"0"),
+            clientId,
+            previous:"Existing assignment",
+            current:`${client?.referrerName||"Agent"} → Super Deals Mauritius → ${agency?.name||"Agency"} → Client`,
+            changedBy:"Super Admin",
+            date:today(),
+            authorization:"Approved"
+        });
+
+        addAudit("CLIENT_ASSIGNED","Assignment",assignment.id);
+
+        saveDB();
+        closeModal();
+        renderAll();
+
+        toast("Client assigned successfully.","success");
+    };
+
+    openModal();
+}
+
+function unassignClient(id){
+
+    const assignment=db.assignments.find(a=>a.id===id);
+
+    if(!assignment)return;
+
+    assignment.status="Closed";
+
+    addAudit("ASSIGNMENT_CLOSED","Assignment",id);
+
+    saveDB();
+    renderAssignments();
+
+    toast("Assignment closed.","success");
+}
+
+/* ---------------- DOCUMENTS ---------------- */
+
+function renderDocuments(){
+
+    const search=(document.getElementById("documentSearch")?.value||"").toLowerCase();
+
+    const rows=db.documents.filter(d=>
+        d.fileName.toLowerCase().includes(search)||
+        d.id.toLowerCase().includes(search)||
+        clientName(d.clientId).toLowerCase().includes(search)
+    );
+
+    document.getElementById("documentsTable").innerHTML=rows.map(d=>`
+        <tr>
+            <td><span class="id">${escapeHTML(d.id)}</span></td>
+            <td>
+                <strong>📄 ${escapeHTML(d.fileName)}</strong>
+            </td>
+            <td>${escapeHTML(clientName(d.clientId))}</td>
+            <td>${escapeHTML(d.type)}</td>
+            <td>${escapeHTML(d.uploadedBy)}</td>
+            <td>${escapeHTML(d.date)}</td>
+            <td>${badge(d.status)}</td>
+            <td>
+                <button class="btn btn-secondary btn-sm"
+                    onclick="viewDocument('${d.id}')">View</button>
+            </td>
+        </tr>
+    `).join("");
+}
+
+function openDocumentModal(){
+
+    document.getElementById("modalTitle").textContent="Upload Document";
+
+    document.getElementById("modalBody").innerHTML=`
+        <form id="documentForm">
+
+            <div class="form-group" style="margin-bottom:15px">
+                <label>Client *</label>
+                <select id="documentClient" class="form-control" required>
+                    <option value="">Select Client</option>
+                    ${db.clients.map(c=>`
+                        <option value="${c.id}">
+                            ${escapeHTML(c.id)} - ${escapeHTML(c.name)}
+                        </option>
+                    `).join("")}
+                </select>
+            </div>
+
+            <div class="form-group" style="margin-bottom:15px">
+                <label>Document Type</label>
+                <select id="documentType" class="form-control">
+                    <option>KYC</option>
+                    <option>Contract</option>
+                    <option>Transaction</option>
+                    <option>Commission</option>
+                    <option>Other</option>
+                </select>
+            </div>
+
+            <div class="file-box">
+                <div style="font-size:28px">📁</div>
+                <div style="font-size:12px;margin-top:5px">
+                    Select document from your device
+                </div>
+                <input id="documentFile" type="file"
+                       accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
+                       required>
+            </div>
+
+            <div style="margin-top:12px;background:#fef2f2;color:#991b1b;padding:11px;border-radius:8px;font-size:10px">
+                For production deployment, uploaded files must be stored in
+                protected server-side storage with access authorization.
+            </div>
+
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                <button class="btn btn-primary">Register Document</button>
+            </div>
+
+        </form>
+    `;
+
+    document.getElementById("documentForm").onsubmit=e=>{
+        e.preventDefault();
+
+        const file=document.getElementById("documentFile").files[0];
+
+        if(!file){
+            toast("Please select a document.","error");
+            return;
+        }
+
+        const documentRecord={
+            id:generateId("DOC"),
+            fileName:file.name,
+            clientId:document.getElementById("documentClient").value,
+            type:document.getElementById("documentType").value,
+            uploadedBy:"Super Admin",
+            date:today(),
+            status:"Pending Review"
+        };
+
+        db.documents.push(documentRecord);
+
+        addAudit("DOCUMENT_REGISTERED","Document",documentRecord.id);
+
+        saveDB();
+        closeModal();
+        renderDocuments();
+
+        toast("Document registered.","success");
+    };
+
+    openModal();
+}
+
+function viewDocument(id){
+
+    const d=db.documents.find(x=>x.id===id);
+
+    if(!d)return;
+
+    document.getElementById("modalTitle").textContent="Document Details";
+
+    document.getElementById("modalBody").innerHTML=`
+        <div class="detail-grid">
+            <div class="detail"><label>Document ID</label><strong>${escapeHTML(d.id)}</strong></div>
+            <div class="detail"><label>File</label><strong>${escapeHTML(d.fileName)}</strong></div>
+            <div class="detail"><label>Client</label><strong>${escapeHTML(clientName(d.clientId))}</strong></div>
+            <div class="detail"><label>Type</label><strong>${escapeHTML(d.type)}</strong></div>
+            <div class="detail"><label>Uploaded By</label><strong>${escapeHTML(d.uploadedBy)}</strong></div>
+            <div class="detail"><label>Status</label><strong>${badge(d.status)}</strong></div>
+        </div>
+
+        <div style="margin-top:18px;background:#f8fafc;padding:14px;border-radius:8px;font-size:11px;color:#64748b">
+            This browser prototype stores document metadata only.
+            Production deployment should use authenticated server-side file storage.
+        </div>
+
+        <div class="form-actions">
+            <button class="btn btn-secondary" onclick="closeModal()">Close</button>
+        </div>
+    `;
+
+    openModal();
+}
+
+/* ---------------- USERS ---------------- */
+
+function renderUsers(){
+
+    document.getElementById("usersTable").innerHTML=db.users.map(u=>`
+        <tr>
+            <td><span class="id">${escapeHTML(u.id)}</span></td>
+            <td><strong>${escapeHTML(u.name)}</strong></td>
+            <td>${escapeHTML(u.email)}</td>
+            <td>${badge(u.role)}</td>
+            <td>${escapeHTML(u.lastLogin)}</td>
+            <td>${badge(u.status)}</td>
+            <td>
+                <button class="btn btn-secondary btn-sm"
+                    onclick="toggleUser('${u.id}')">
+                    ${u.status==="Active"?"Deactivate":"Activate"}
+                </button>
+            </td>
+        </tr>
+    `).join("");
+}
+
+function openUserModal(){
+
+    document.getElementById("modalTitle").textContent="Add User";
+
+    document.getElementById("modalBody").innerHTML=`
+        <form id="userForm">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label>Full Name *</label>
+                    <input id="userName" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input id="userEmail" class="form-control" type="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Role *</label>
+                    <select id="userRole" class="form-control">
+                        <option>Super Admin</option>
+                        <option>Company Staff</option>
+                        <option>Agent</option>
+                        <option>Partner Agency</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Temporary Password *</label>
+                    <input id="userPassword" class="form-control" type="password"
+                           minlength="10" required>
+                </div>
+
+            </div>
+
+            <div style="margin-top:15px;background:#eff6ff;padding:12px;border-radius:8px;font-size:10px;color:#1e40af">
+                Passwords must be securely hashed by the production backend.
+                Never store plain-text passwords in a production database.
+            </div>
+
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                <button class="btn btn-primary">Create User</button>
+            </div>
+
+        </form>
+    `;
+
+    document.getElementById("userForm").onsubmit=e=>{
+        e.preventDefault();
+
+        const user={
+            id:generateId("USR"),
+            name:document.getElementById("userName").value.trim(),
+            email:document.getElementById("userEmail").value.trim(),
+            role:document.getElementById("userRole").value,
+            lastLogin:"Never",
+            status:"Active"
+        };
+
+        db.users.push(user);
+
+        addAudit("USER_CREATED","User",user.id);
+
+        saveDB();
+        closeModal();
+        renderUsers();
+
+        toast("User created successfully.","success");
+    };
+
+    openModal();
+}
+
+function toggleUser(id){
+
+    const user=db.users.find(u=>u.id===id);
+
+    if(!user)return;
+
+    if(user.id==="USR-001"){
+        toast("The primary administrator cannot be deactivated in this demo.","warning");
+        return;
+    }
+
+    user.status=user.status==="Active"?"Inactive":"Active";
+
+    addAudit("USER_STATUS_CHANGED","User",id);
+
+    saveDB();
+    renderUsers();
+
+    toast("User status updated.","success");
+}
+
+/* ---------------- NOTIFICATIONS ---------------- */
+
+function renderNotifications(){
+
+    const list=document.getElementById("notificationsList");
+
+    list.innerHTML=db.notifications.length?
+        db.notifications.map(n=>`
+            <div style="
+                padding:18px 20px;
+                border-bottom:1px solid var(--border);
+                background:${n.read?"#fff":"#f8fbff"};
+                display:flex;
+                justify-content:space-between;
+                gap:15px;
+            ">
+                <div style="display:flex;gap:12px">
+                    <div style="
+                        width:36px;height:36px;border-radius:50%;
+                        background:${n.type==="warning"?"#fef3c7":"#dcfce7"};
+                        display:grid;place-items:center;
+                    ">${n.type==="warning"?"⚠️":"✓"}</div>
+
+                    <div>
+                        <strong style="font-size:13px">${escapeHTML(n.title)}</strong>
+                        <div style="font-size:11px;color:#64748b;margin-top:4px">
+                            ${escapeHTML(n.text)}
+                        </div>
+                        <div style="font-size:9px;color:#94a3b8;margin-top:5px">
+                            ${escapeHTML(n.time)}
+                        </div>
+                    </div>
+                </div>
+
+                ${n.read?
+                    `<span class="badge badge-neutral">Read</span>`:
+                    `<button class="btn btn-secondary btn-sm"
+                        onclick="markRead('${n.id}')">Mark Read</button>`
+                }
+            </div>
+        `).join(""):
+        `<div class="empty">No notifications.</div>`;
+}
+
+function markRead(id){
+
+    const n=db.notifications.find(x=>x.id===id);
+
+    if(n)n.read=true;
+
+    saveDB();
+    renderNotifications();
+}
+
+function markAllRead(){
+
+    db.notifications.forEach(n=>n.read=true);
+
+    saveDB();
+    renderNotifications();
+
+    toast("All notifications marked as read.","success");
+}
+
+/* ---------------- AUDIT ---------------- */
+
+function renderAudit(){
+
+    const search=(document.getElementById("auditSearch")?.value||"").toLowerCase();
+    const type=document.getElementById("auditTypeFilter")?.value||"";
+
+    const rows=db.auditLogs.filter(a=>{
+        const text=JSON.stringify(a).toLowerCase();
+
+        let matchesType=true;
+
+        if(type){
+            matchesType=a.action.includes(type);
+        }
+
+        return text.includes(search)&&matchesType;
+    });
+
+    document.getElementById("auditTable").innerHTML=rows.length?rows.map(a=>`
+        <tr>
+            <td><span class="id">${escapeHTML(a.id)}</span></td>
+            <td>${escapeHTML(a.timestamp)}</td>
+            <td>${escapeHTML(a.user)}</td>
+            <td><span class="badge badge-info">${escapeHTML(a.action)}</span></td>
+            <td>${escapeHTML(a.entity)}</td>
+            <td>${escapeHTML(a.entityId)}</td>
+            <td>${escapeHTML(a.device)}</td>
+            <td>${badge(a.result)}</td>
+        </tr>
+    `).join(""):`
+        <tr><td colspan="8"><div class="empty">No audit records found.</div></td></tr>
+    `;
+}
+
+/* ---------------- SETTINGS ---------------- */
+
+function loadSettings(){
+
+    const s=db.settings;
+
+    document.getElementById("sessionTimeout").value=s.sessionTimeout;
+    document.getElementById("maxLoginAttempts").value=s.maxLoginAttempts;
+    document.getElementById("passwordLength").value=s.passwordLength;
+    document.getElementById("twoFactor").checked=s.twoFactor;
+    document.getElementById("auditEnabled").checked=s.auditEnabled;
+    document.getElementById("notifySecurity").checked=s.notifySecurity;
+    document.getElementById("defaultAgentRate").value=s.defaultAgentRate;
+    document.getElementById("defaultAgencyRate").value=s.defaultAgencyRate;
+    document.getElementById("defaultCompanyRate").value=s.defaultCompanyRate;
+}
+
+function saveSettings(){
+
+    db.settings={
+        sessionTimeout:Number(document.getElementById("sessionTimeout").value),
+        maxLoginAttempts:Number(document.getElementById("maxLoginAttempts").value),
+        passwordLength:Number(document.getElementById("passwordLength").value),
+        twoFactor:document.getElementById("twoFactor").checked,
+        auditEnabled:document.getElementById("auditEnabled").checked,
+        notifySecurity:document.getElementById("notifySecurity").checked,
+        defaultAgentRate:Number(document.getElementById("defaultAgentRate").value),
+        defaultAgencyRate:Number(document.getElementById("defaultAgencyRate").value),
+        defaultCompanyRate:Number(document.getElementById("defaultCompanyRate").value)
+    };
+
+    saveDB();
+
+    addAudit("SETTINGS_UPDATED","System","SETTINGS");
+
+    toast("System settings saved.","success");
+}
+
+/* ---------------- MODAL ---------------- */
+
+function openModal(){
+    document.getElementById("modalOverlay").classList.add("open");
+}
+
+function closeModal(){
+    document.getElementById("modalOverlay").classList.remove("open");
+}
+
+function closeModalOutside(e){
+    if(e.target===document.getElementById("modalOverlay")){
+        closeModal();
+    }
+}
+
+/* ---------------- TOAST ---------------- */
+
+function toast(message,type="success"){
+
+    const container=document.getElementById("toastContainer");
+
+    const item=document.createElement("div");
+
+    item.className="toast "+type;
+    item.textContent=message;
+
+    container.appendChild(item);
+
+    setTimeout(()=>{
+        item.remove();
+    },3500);
+}
+
+/* ---------------- EXPORT ---------------- */
+
+function downloadFile(filename,content,type="text/csv"){
+
+    const blob=new Blob([content],{type});
+    const url=URL.createObjectURL(blob);
+
+    const a=document.createElement("a");
+    a.href=url;
+    a.download=filename;
+    a.click();
+
+    URL.revokeObjectURL(url);
+}
+
+function csvFromArray(rows){
+
+    if(!rows.length)return "";
+
+    const headers=Object.keys(rows[0]);
+
+    const csv=[
+        headers.join(","),
+        ...rows.map(row=>headers.map(h=>{
+            const value=String(row[h]??"").replace(/"/g,'""');
+            return `"${value}"`;
+        }).join(","))
+    ].join("\n");
+
+    return csv;
+}
+
+function exportClients(){
+    downloadFile(
+        "ASHWINI_Clients.csv",
+        csvFromArray(db.clients)
+    );
+
+    addAudit("DATA_EXPORT","Client","ALL");
+    toast("Client export downloaded.","success");
+}
+
+function exportAudit(){
+    downloadFile(
+        "ASHWINI_Audit_Trail.csv",
+        csvFromArray(db.auditLogs)
+    );
+
+    toast("Audit export downloaded.","success");
+}
+
+function exportData(){
+
+    const data=JSON.stringify(db,null,2);
+
+    downloadFile(
+        "ASHWINI_Backup.json",
+        data,
+        "application/json"
+    );
+
+    addAudit("DATA_EXPORT","System","FULL_BACKUP");
+
+    toast("System backup downloaded.","success");
+}
+
+/* ---------------- BACKUP ---------------- */
+
+function backupDemo(){
+
+    exportData();
+}
+
+function clearDemoData(){
+
+    const confirmed=confirm(
+        "Reset all browser demo data to the original ASHWINI sample dataset?"
+    );
+
+    if(!confirmed)return;
+
+    localStorage.removeItem(STORAGE_KEY);
+
+    location.reload();
+}
+
+/* ---------------- CHART ---------------- */
+
+function updateChart(months){
+
+    const chart=document.getElementById("transactionChart");
+
+    if(months==="12"){
+        chart.innerHTML=[
+            ["Oct",25],["Nov",34],["Dec",42],
+            ["Jan",50],["Feb",45],["Mar",56],
+            ["Apr",35],["May",48],["Jun",42],
+            ["Jul",65],["Aug",76],["Sep",90]
+        ].map(x=>`
+            <div class="bar" style="height:${x[1]}%">
+                <span>${x[0]}</span>
+            </div>
+        `).join("");
+    }else{
+        chart.innerHTML=[
+            ["Apr",35],["May",48],["Jun",42],
+            ["Jul",65],["Aug",76],["Sep",90]
+        ].map(x=>`
+            <div class="bar" style="height:${x[1]}%">
+                <span>${x[0]}</span>
+            </div>
+        `).join("");
+    }
+}
+
+/* ---------------- GLOBAL RENDER ---------------- */
+
+function renderAll(){
+
+    renderDashboard();
+    renderClients();
+    renderReferrals();
+    renderTransactions();
+    renderCommissions();
+    renderAgents();
+    renderAgencies();
+    renderAssignments();
+    renderDocuments();
+    renderUsers();
+    renderNotifications();
+    renderAudit();
+    loadSettings();
+}
+
+/* ---------------- START ---------------- */
+
+loadDB();
+
+/*
+Production security reminder:
+
+This file is a front-end prototype.
+
+For a real ASHWINI deployment:
+- Authentication must be handled server-side.
+- Passwords must be salted and hashed.
+- Authorization must be enforced server-side.
+- Database records must not rely on localStorage.
+- Referral history should be protected by database permissions.
+- Audit logs should be append-only and protected from normal users.
+- SQL queries must use parameterized statements/ORM.
+- CSRF protection must be enabled.
+- HTTP security headers should be configured.
+- HTTPS should be mandatory.
+- Uploaded documents must be stored outside the public web root.
+- File types, MIME types, size and content must be validated server-side.
+- Sessions must use secure, HttpOnly, SameSite cookies.
+- Login attempts should be rate-limited.
+- Backups should be encrypted and tested.
+- Sensitive commission information must be restricted by role.
+- All critical operations should require server-side authorization.
+*/
 
 </script>
 
